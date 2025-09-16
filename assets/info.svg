@@ -1,29 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="860" height="460" viewBox="0 0 860 460" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;}
-  </style>
-
-  <!-- Header Parrot-like -->
-  <defs>
-    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#19c37d"/>
-      <stop offset="1" stop-color="#00bcd4"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Background & finestra -->
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="460" viewBox="0 0 860 460">
+  <!-- Sfondo finestra -->
   <rect width="100%" height="100%" fill="#070c18"/>
   <rect x="30" y="30" width="800" height="400" rx="12" ry="12" fill="#0b1220" stroke="#1f2937"/>
-  <rect x="30" y="30" width="800" height="36" fill="url(#hdr)"/>
-  <circle cx="56" cy="48" r="5" fill="#ff5f56"/>
-  <circle cx="74" cy="48" r="5" fill="#ffbd2e"/>
-  <circle cx="92" cy="48" r="5" fill="#27c93f"/>
-  <text class="mono" x="112" y="52" font-size="14" fill="#062019" opacity="0.92">Parrot Terminal</text>
+  <!-- Barra titolo semplice (niente gradient) -->
+  <rect x="30" y="30" width="800" height="36" fill="#19c37d"/>
+  <text x="112" y="52" font-family="monospace" font-size="14" fill="#062019">Parrot Terminal</text>
 
-  <!-- ================= SHELL ================= -->
-  <g id="shell" class="mono" font-size="22" fill="#eaf2ff">
-    <!-- prompt fisso -->
+  <!-- ============= SHELL ============= -->
+  <g font-family="monospace" font-size="22" fill="#eaf2ff" id="shell">
+    <!-- Prompt -->
     <text x="60" y="164">
       <tspan fill="#19c37d">giovanni</tspan>
       <tspan fill="#93a3b8">@</tspan>
@@ -31,25 +16,22 @@
       <tspan fill="#93a3b8">:~$ </tspan>
     </text>
 
-    <!-- Comando digitato: n testo sovrapposti, rivelati con opacity (niente maschere) -->
-    <!-- Per evitare pesantezza, facciamo step per carattere, ma sono pochi -->
-    <g data-command>
-      <text x="320" y="164" opacity="0">v<set attributeName="opacity" to="1" begin="0.60s"/></text>
-      <text x="332" y="164" opacity="0">i<set attributeName="opacity" to="1" begin="0.72s"/></text>
-      <text x="344" y="164" opacity="0">m<set attributeName="opacity" to="1" begin="0.84s"/></text>
-      <text x="368" y="164" opacity="0"> <set attributeName="opacity" to="1" begin="0.96s"/></text>
-      <text x="380" y="164" opacity="0">i<set attributeName="opacity" to="1" begin="1.08s"/></text>
-      <text x="392" y="164" opacity="0">n<set attributeName="opacity" to="1" begin="1.20s"/></text>
-      <text x="404" y="164" opacity="0">f<set attributeName="opacity" to="1" begin="1.32s"/></text>
-      <text x="416" y="164" opacity="0">o<set attributeName="opacity" to="1" begin="1.44s"/></text>
-      <text x="428" y="164" opacity="0">.<set attributeName="opacity" to="1" begin="1.56s"/></text>
-      <text x="440" y="164" opacity="0">j<set attributeName="opacity" to="1" begin="1.68s"/></text>
-      <text x="452" y="164" opacity="0">s<set attributeName="opacity" to="1" begin="1.80s"/></text>
-      <text x="464" y="164" opacity="0">o<set attributeName="opacity" to="1" begin="1.92s"/></text>
-      <text x="476" y="164" opacity="0">n<set attributeName="opacity" to="1" begin="2.04s"/></text>
-    </g>
+    <!-- Digitazione comando: caratteri rivelati via opacity (nessuna mask/clip) -->
+    <text x="320" y="164" opacity="0">v <set attributeName="opacity" to="1" begin="0.60s"/></text>
+    <text x="332" y="164" opacity="0">i <set attributeName="opacity" to="1" begin="0.72s"/></text>
+    <text x="344" y="164" opacity="0">m <set attributeName="opacity" to="1" begin="0.84s"/></text>
+    <text x="368" y="164" opacity="0">  <set attributeName="opacity" to="1" begin="0.96s"/></text>
+    <text x="380" y="164" opacity="0">i <set attributeName="opacity" to="1" begin="1.08s"/></text>
+    <text x="392" y="164" opacity="0">n <set attributeName="opacity" to="1" begin="1.20s"/></text>
+    <text x="404" y="164" opacity="0">f <set attributeName="opacity" to="1" begin="1.32s"/></text>
+    <text x="416" y="164" opacity="0">o <set attributeName="opacity" to="1" begin="1.44s"/></text>
+    <text x="428" y="164" opacity="0">. <set attributeName="opacity" to="1" begin="1.56s"/></text>
+    <text x="440" y="164" opacity="0">j <set attributeName="opacity" to="1" begin="1.68s"/></text>
+    <text x="452" y="164" opacity="0">s <set attributeName="opacity" to="1" begin="1.80s"/></text>
+    <text x="464" y="164" opacity="0">o <set attributeName="opacity" to="1" begin="1.92s"/></text>
+    <text x="476" y="164" opacity="0">n <set attributeName="opacity" to="1" begin="2.04s"/></text>
 
-    <!-- Cursore a scatti (salta di 12px per char) -->
+    <!-- Cursore a scatti -->
     <rect x="320" y="144" width="12" height="24" fill="#eaf2ff">
       <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/>
       <animate attributeName="x" begin="0.60s" dur="1.44s" fill="freeze" calcMode="discrete"
@@ -63,123 +45,65 @@
     </text>
 
     <!-- fade out shell -->
-    <animate attributeName="opacity" begin="2.70s" dur="0.15s" to="0" fill="freeze"/>
+    <animate attributeName="opacity" begin="2.70s" dur="0.10s" to="0" fill="freeze"/>
   </g>
 
-  <!-- ================= EDITOR (VIM) ================= -->
-  <g id="vim" class="mono" opacity="0">
+  <!-- ============= EDITOR (VIM) ============= -->
+  <g font-family="monospace" id="vim" opacity="0">
     <rect x="30" y="66" width="800" height="364" fill="#070c18"/>
     <!-- status bar -->
     <rect x="30" y="406" width="800" height="24" fill="#0a3140"/>
     <text x="40" y="422" font-size="14" fill="#a7f3d0">info.json</text>
-    <text x="820" y="422" font-size="14" fill="#f8fafc" text-anchor="end">-- INSERT --</text>
+    <text x="820" y="422" font-size="14" text-anchor="end" fill="#f8fafc">-- INSERT --</text>
 
     <!-- numeri riga -->
-    <g font-size="16" fill="#3a495d" opacity="0.95">
-      <text x="52" y="200">1</text>
-      <text x="52" y="228">2</text>
-      <text x="52" y="256">3</text>
-      <text x="52" y="284">4</text>
-      <text x="52" y="312">5</text>
-      <text x="52" y="340">6</text>
+    <g font-size="16" fill="#3a495d">
+      <text x="52" y="200">1</text><text x="52" y="228">2</text><text x="52" y="256">3</text>
+      <text x="52" y="284">4</text><text x="52" y="312">5</text><text x="52" y="340">6</text>
       <text x="52" y="368">7</text>
     </g>
 
-    <!-- Testo digitato: per evitare decine di maschere, usiamo chunk per parola/segmento -->
-    <!-- RIGA 1 -->
-    <g data-line1 font-size="22" fill="#eaf2ff">
-      <text x="80" y="200" opacity="0">{<set attributeName="opacity" to="1" begin="3.00s"/></text>
-    </g>
+    <!-- Contenuto: segmenti che compaiono con <set> -->
+    <!-- Riga 1 -->
+    <text x="80" y="200" font-size="22" fill="#eaf2ff" opacity="0">{<set attributeName="opacity" to="1" begin="3.00s"/></text>
+    <!-- Riga 2 -->
+    <text x="80" y="228" font-size="22" fill="#eaf2ff" opacity="0">  "name": "&lt;YOUR_NAME&gt;",<set attributeName="opacity" to="1" begin="3.60s"/></text>
+    <!-- Riga 3 -->
+    <text x="80" y="256" font-size="22" fill="#eaf2ff" opacity="0">  "email": "&lt;YOUR_EMAIL&gt;",<set attributeName="opacity" to="1" begin="4.80s"/></text>
+    <!-- Riga 4 -->
+    <text x="80" y="284" font-size="22" fill="#eaf2ff" opacity="0">  "website": "&lt;YOUR_WEBSITE_OR_GITHUB&gt;",<set attributeName="opacity" to="1" begin="6.00s"/></text>
+    <!-- Riga 5 -->
+    <text x="80" y="312" font-size="22" fill="#eaf2ff" opacity="0">  "skills": ["&lt;SKILL_1&gt;", "&lt;SKILL_2&gt;", "&lt;SKILL_3&gt;"],<set attributeName="opacity" to="1" begin="7.50s"/></text>
+    <!-- Riga 6 -->
+    <text x="80" y="340" font-size="22" fill="#eaf2ff" opacity="0">  "bio": "&lt;SHORT_BIO_ONE_LINE&gt;"<set attributeName="opacity" to="1" begin="9.40s"/></text>
+    <!-- Chiusura -->
+    <text x="80" y="368" font-size="22" fill="#eaf2ff" opacity="0">}<set attributeName="opacity" to="1" begin="10.10s"/></text>
 
-    <!-- RIGA 2 -->
-    <g data-line2 font-size="22" fill="#eaf2ff">
-      <text x="80" y="228" opacity="0">  <set attributeName="opacity" to="1" begin="3.40s"/></text>
-      <text x="104" y="228" opacity="0">"name": <set attributeName="opacity" to="1" begin="3.60s"/></text>
-      <text x="212" y="228" opacity="0">"&lt;YOUR_NAME&gt;"<set attributeName="opacity" to="1" begin="4.10s"/></text>
-      <text x="404" y="228" opacity="0">,<set attributeName="opacity" to="1" begin="4.20s"/></text>
-    </g>
-
-    <!-- RIGA 3 -->
-    <g data-line3 font-size="22" fill="#eaf2ff">
-      <text x="80" y="256" opacity="0">  <set attributeName="opacity" to="1" begin="4.60s"/></text>
-      <text x="104" y="256" opacity="0">"email": <set attributeName="opacity" to="1" begin="4.80s"/></text>
-      <text x="220" y="256" opacity="0">"&lt;YOUR_EMAIL&gt;"<set attributeName="opacity" to="1" begin="5.30s"/></text>
-      <text x="430" y="256" opacity="0">,<set attributeName="opacity" to="1" begin="5.40s"/></text>
-    </g>
-
-    <!-- RIGA 4 -->
-    <g data-line4 font-size="22" fill="#eaf2ff">
-      <text x="80" y="284" opacity="0">  <set attributeName="opacity" to="1" begin="5.80s"/></text>
-      <text x="104" y="284" opacity="0">"website": <set attributeName="opacity" to="1" begin="6.00s"/></text>
-      <text x="236" y="284" opacity="0">"&lt;YOUR_WEBSITE_OR_GITHUB&gt;"<set attributeName="opacity" to="1" begin="6.80s"/></text>
-      <text x="604" y="284" opacity="0">,<set attributeName="opacity" to="1" begin="6.90s"/></text>
-    </g>
-
-    <!-- RIGA 5 -->
-    <g data-line5 font-size="22" fill="#eaf2ff">
-      <text x="80" y="312" opacity="0">  <set attributeName="opacity" to="1" begin="7.30s"/></text>
-      <text x="104" y="312" opacity="0">"skills": <set attributeName="opacity" to="1" begin="7.50s"/></text>
-      <text x="212" y="312" opacity="0">[<set attributeName="opacity" to="1" begin="7.70s"/></text>
-      <text x="224" y="312" opacity="0">"&lt;SKILL_1&gt;"<set attributeName="opacity" to="1" begin="7.95s"/></text>
-      <text x="380" y="312" opacity="0">, <set attributeName="opacity" to="1" begin="8.05s"/></text>
-      <text x="404" y="312" opacity="0">"&lt;SKILL_2&gt;"<set attributeName="opacity" to="1" begin="8.30s"/></text>
-      <text x="560" y="312" opacity="0">, <set attributeName="opacity" to="1" begin="8.40s"/></text>
-      <text x="584" y="312" opacity="0">"&lt;SKILL_3&gt;"<set attributeName="opacity" to="1" begin="8.65s"/></text>
-      <text x="740" y="312" opacity="0">],<set attributeName="opacity" to="1" begin="8.80s"/></text>
-    </g>
-
-    <!-- RIGA 6 -->
-    <g data-line6 font-size="22" fill="#eaf2ff">
-      <text x="80" y="340" opacity="0">  <set attributeName="opacity" to="1" begin="9.20s"/></text>
-      <text x="104" y="340" opacity="0">"bio": <set attributeName="opacity" to="1" begin="9.40s"/></text>
-      <text x="176" y="340" opacity="0">"&lt;SHORT_BIO_ONE_LINE&gt;"<set attributeName="opacity" to="1" begin="10.00s"/></text>
-    </g>
-
-    <!-- Chiusura JSON -->
-    <text x="80" y="368" font-size="22" fill="#eaf2ff" opacity="0">}
-      <set attributeName="opacity" to="1" begin="10.50s"/>
-    </text>
-
-    <!-- Cursore a scatti (blocchetto) -->
-    <!-- Si muove con salti discreti sincronizzati ai begin sopra; niente maschere -->
-    <rect id="cursor" x="80" y="182" width="12" height="22" fill="#a5b4fc" opacity="0">
-      <!-- appare quando inizia l'INSERT -->
+    <!-- Cursore a scatti: si sposta con <set> -->
+    <rect x="80" y="182" width="12" height="22" fill="#a5b4fc" opacity="0">
       <set attributeName="opacity" to="1" begin="3.00s"/>
-      <!-- riga 1: pos dopo "{" -->
+      <!-- riga1 dopo "{" -->
       <set attributeName="x" to="92" begin="3.00s"/>
-      <set attributeName="y" to="210" begin="3.40s"/>
-      <!-- riga 2: si sposta a fine segmenti -->
-      <set attributeName="x" to="200" begin="3.60s"/>
-      <set attributeName="x" to="392" begin="4.10s"/>
-      <set attributeName="x" to="404" begin="4.20s"/>
-      <set attributeName="y" to="238" begin="4.60s"/>
-      <!-- riga 3 -->
-      <set attributeName="x" to="208" begin="4.80s"/>
-      <set attributeName="x" to="418" begin="5.30s"/>
-      <set attributeName="x" to="430" begin="5.40s"/>
-      <set attributeName="y" to="266" begin="5.80s"/>
-      <!-- riga 4 -->
-      <set attributeName="x" to="224" begin="6.00s"/>
-      <set attributeName="x" to="592" begin="6.80s"/>
-      <set attributeName="x" to="604" begin="6.90s"/>
-      <set attributeName="y" to="294" begin="7.30s"/>
-      <!-- riga 5 -->
-      <set attributeName="x" to="200" begin="7.50s"/>
-      <set attributeName="x" to="224" begin="7.70s"/>
-      <set attributeName="x" to="372" begin="7.95s"/>
-      <set attributeName="x" to="392" begin="8.05s"/>
-      <set attributeName="x" to="548" begin="8.30s"/>
-      <set attributeName="x" to="560" begin="8.40s"/>
-      <set attributeName="x" to="736" begin="8.65s"/>
-      <set attributeName="x" to="748" begin="8.80s"/>
-      <set attributeName="y" to="322" begin="9.20s"/>
-      <!-- riga 6 -->
-      <set attributeName="x" to="172" begin="9.40s"/>
-      <set attributeName="x" to="430" begin="10.00s"/>
-      <set attributeName="y" to="350" begin="10.50s"/>
+      <set attributeName="y" to="210" begin="3.60s"/>
+      <!-- riga2 fine -->
+      <set attributeName="x" to="404" begin="3.60s"/>
+      <set attributeName="y" to="238" begin="4.80s"/>
+      <!-- riga3 fine -->
+      <set attributeName="x" to="430" begin="4.80s"/>
+      <set attributeName="y" to="266" begin="6.00s"/>
+      <!-- riga4 fine -->
+      <set attributeName="x" to="604" begin="6.00s"/>
+      <set attributeName="y" to="294" begin="7.50s"/>
+      <!-- riga5 fine -->
+      <set attributeName="x" to="748" begin="7.50s"/>
+      <set attributeName="y" to="322" begin="9.40s"/>
+      <!-- riga6 fine -->
+      <set attributeName="x" to="430" begin="9.40s"/>
+      <!-- blink semplice -->
+      <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite" begin="3.00s"/>
     </rect>
 
     <!-- fade in editor -->
-    <animate attributeName="opacity" begin="2.70s" dur="0.15s" to="1" fill="freeze"/>
+    <animate attributeName="opacity" begin="2.70s" dur="0.10s" to="1" fill="freeze"/>
   </g>
 </svg>
