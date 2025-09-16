@@ -1,12 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="460" viewBox="0 0 860 460">
-  <!-- Sfondo finestra -->
+  <!-- BG + finestra -->
   <rect width="100%" height="100%" fill="#070c18"/>
   <rect x="30" y="30" width="800" height="400" rx="12" ry="12" fill="#0b1220" stroke="#1f2937"/>
-  <!-- Barra titolo semplice (niente gradient) -->
   <rect x="30" y="30" width="800" height="36" fill="#19c37d"/>
   <text x="112" y="52" font-family="monospace" font-size="14" fill="#062019">Parrot Terminal</text>
 
-  <!-- ============= SHELL ============= -->
+  <!-- ============= SHELL (per-carattere) ============= -->
   <g font-family="monospace" font-size="22" fill="#eaf2ff" id="shell">
     <!-- Prompt -->
     <text x="60" y="164">
@@ -16,29 +15,29 @@
       <tspan fill="#93a3b8">:~$ </tspan>
     </text>
 
-    <!-- Digitazione comando: caratteri rivelati via opacity (nessuna mask/clip) -->
-    <text x="320" y="164" opacity="0">v <set attributeName="opacity" to="1" begin="0.60s"/></text>
-    <text x="332" y="164" opacity="0">i <set attributeName="opacity" to="1" begin="0.72s"/></text>
-    <text x="344" y="164" opacity="0">m <set attributeName="opacity" to="1" begin="0.84s"/></text>
-    <text x="368" y="164" opacity="0">  <set attributeName="opacity" to="1" begin="0.96s"/></text>
-    <text x="380" y="164" opacity="0">i <set attributeName="opacity" to="1" begin="1.08s"/></text>
-    <text x="392" y="164" opacity="0">n <set attributeName="opacity" to="1" begin="1.20s"/></text>
-    <text x="404" y="164" opacity="0">f <set attributeName="opacity" to="1" begin="1.32s"/></text>
-    <text x="416" y="164" opacity="0">o <set attributeName="opacity" to="1" begin="1.44s"/></text>
-    <text x="428" y="164" opacity="0">. <set attributeName="opacity" to="1" begin="1.56s"/></text>
-    <text x="440" y="164" opacity="0">j <set attributeName="opacity" to="1" begin="1.68s"/></text>
-    <text x="452" y="164" opacity="0">s <set attributeName="opacity" to="1" begin="1.80s"/></text>
-    <text x="464" y="164" opacity="0">o <set attributeName="opacity" to="1" begin="1.92s"/></text>
-    <text x="476" y="164" opacity="0">n <set attributeName="opacity" to="1" begin="2.04s"/></text>
+    <!-- Comando digitato -->
+    <text x="320" y="164" opacity="0">v<set attributeName="opacity" to="1" begin="0.60s"/></text>
+    <text x="332" y="164" opacity="0">i<set attributeName="opacity" to="1" begin="0.72s"/></text>
+    <text x="344" y="164" opacity="0">m<set attributeName="opacity" to="1" begin="0.84s"/></text>
+    <text x="356" y="164" opacity="0"> <set attributeName="opacity" to="1" begin="0.96s"/></text>
+    <text x="368" y="164" opacity="0">i<set attributeName="opacity" to="1" begin="1.08s"/></text>
+    <text x="380" y="164" opacity="0">n<set attributeName="opacity" to="1" begin="1.20s"/></text>
+    <text x="392" y="164" opacity="0">f<set attributeName="opacity" to="1" begin="1.32s"/></text>
+    <text x="404" y="164" opacity="0">o<set attributeName="opacity" to="1" begin="1.44s"/></text>
+    <text x="416" y="164" opacity="0">.<set attributeName="opacity" to="1" begin="1.56s"/></text>
+    <text x="428" y="164" opacity="0">j<set attributeName="opacity" to="1" begin="1.68s"/></text>
+    <text x="440" y="164" opacity="0">s<set attributeName="opacity" to="1" begin="1.80s"/></text>
+    <text x="452" y="164" opacity="0">o<set attributeName="opacity" to="1" begin="1.92s"/></text>
+    <text x="464" y="164" opacity="0">n<set attributeName="opacity" to="1" begin="2.04s"/></text>
 
-    <!-- Cursore a scatti -->
+    <!-- Cursore shell (salti discreti) -->
     <rect x="320" y="144" width="12" height="24" fill="#eaf2ff">
       <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/>
       <animate attributeName="x" begin="0.60s" dur="1.44s" fill="freeze" calcMode="discrete"
                values="320;332;344;356;368;380;392;404;416;428;440;452;464;476"/>
     </rect>
 
-    <!-- Messaggio apertura -->
+    <!-- Messaggio -->
     <text x="60" y="198" fill="#7a8799" opacity="0">
       <set attributeName="opacity" to="1" begin="2.30s"/>
       Opening 'info.json' with Vim...
@@ -48,7 +47,7 @@
     <animate attributeName="opacity" begin="2.70s" dur="0.10s" to="0" fill="freeze"/>
   </g>
 
-  <!-- ============= EDITOR (VIM) ============= -->
+  <!-- ============= VIM (per-carattere) ============= -->
   <g font-family="monospace" id="vim" opacity="0">
     <rect x="30" y="66" width="800" height="364" fill="#070c18"/>
     <!-- status bar -->
@@ -63,44 +62,300 @@
       <text x="52" y="368">7</text>
     </g>
 
-    <!-- Contenuto: segmenti che compaiono con <set> -->
-    <!-- Riga 1 -->
-    <text x="80" y="200" font-size="22" fill="#eaf2ff" opacity="0">{<set attributeName="opacity" to="1" begin="3.00s"/></text>
-    <!-- Riga 2 -->
-    <text x="80" y="228" font-size="22" fill="#eaf2ff" opacity="0">  "name": "&lt;YOUR_NAME&gt;",<set attributeName="opacity" to="1" begin="3.60s"/></text>
-    <!-- Riga 3 -->
-    <text x="80" y="256" font-size="22" fill="#eaf2ff" opacity="0">  "email": "&lt;YOUR_EMAIL&gt;",<set attributeName="opacity" to="1" begin="4.80s"/></text>
-    <!-- Riga 4 -->
-    <text x="80" y="284" font-size="22" fill="#eaf2ff" opacity="0">  "website": "&lt;YOUR_WEBSITE_OR_GITHUB&gt;",<set attributeName="opacity" to="1" begin="6.00s"/></text>
-    <!-- Riga 5 -->
-    <text x="80" y="312" font-size="22" fill="#eaf2ff" opacity="0">  "skills": ["&lt;SKILL_1&gt;", "&lt;SKILL_2&gt;", "&lt;SKILL_3&gt;"],<set attributeName="opacity" to="1" begin="7.50s"/></text>
-    <!-- Riga 6 -->
-    <text x="80" y="340" font-size="22" fill="#eaf2ff" opacity="0">  "bio": "&lt;SHORT_BIO_ONE_LINE&gt;"<set attributeName="opacity" to="1" begin="9.40s"/></text>
-    <!-- Chiusura -->
-    <text x="80" y="368" font-size="22" fill="#eaf2ff" opacity="0">}<set attributeName="opacity" to="1" begin="10.10s"/></text>
+    <!-- RIGA 1: { -->
+    <g font-size="22" fill="#eaf2ff">
+      <!-- per-carattere -->
+      <text x="80" y="200" opacity="0">{<set attributeName="opacity" to="1" begin="3.00s"/></text>
+    </g>
 
-    <!-- Cursore a scatti: si sposta con <set> -->
+    <!-- RIGA 2:   "name": "<NAME>", -->
+    <g font-size="22" fill="#eaf2ff">
+      <!-- generato per-carattere -->
+      <text x="80" y="228" opacity="0"> <set attributeName="opacity" to="1" begin="3.36s"/></text>
+      <text x="92" y="228" opacity="0"> <set attributeName="opacity" to="1" begin="3.42s"/></text>
+      <text x="104" y="228" opacity="0">"<set attributeName="opacity" to="1" begin="3.48s"/></text>
+      <text x="116" y="228" opacity="0">n<set attributeName="opacity" to="1" begin="3.54s"/></text>
+      <text x="128" y="228" opacity="0">a<set attributeName="opacity" to="1" begin="3.60s"/></text>
+      <text x="140" y="228" opacity="0">m<set attributeName="opacity" to="1" begin="3.66s"/></text>
+      <text x="152" y="228" opacity="0">e<set attributeName="opacity" to="1" begin="3.72s"/></text>
+      <text x="164" y="228" opacity="0">"<set attributeName="opacity" to="1" begin="3.78s"/></text>
+      <text x="176" y="228" opacity="0">:<set attributeName="opacity" to="1" begin="3.84s"/></text>
+      <text x="188" y="228" opacity="0"> <set attributeName="opacity" to="1" begin="3.90s"/></text>
+      <text x="200" y="228" opacity="0">"<set attributeName="opacity" to="1" begin="3.96s"/></text>
+      <text x="212" y="228" opacity="0">&lt;<set attributeName="opacity" to="1" begin="4.02s"/></text>
+      <text x="224" y="228" opacity="0">N<set attributeName="opacity" to="1" begin="4.08s"/></text>
+      <text x="236" y="228" opacity="0">A<set attributeName="opacity" to="1" begin="4.14s"/></text>
+      <text x="248" y="228" opacity="0">M<set attributeName="opacity" to="1" begin="4.20s"/></text>
+      <text x="260" y="228" opacity="0">E<set attributeName="opacity" to="1" begin="4.26s"/></text>
+      <text x="272" y="228" opacity="0">&gt;<set attributeName="opacity" to="1" begin="4.32s"/></text>
+      <text x="284" y="228" opacity="0">"<set attributeName="opacity" to="1" begin="4.38s"/></text>
+      <text x="296" y="228" opacity="0">,<set attributeName="opacity" to="1" begin="4.44s"/></text>
+    </g>
+
+    <!-- RIGA 3:   "email": "<EMAIL>", -->
+    <g font-size="22" fill="#eaf2ff">
+      <text x="80" y="256" opacity="0"> <set attributeName="opacity" to="1" begin="4.60s"/></text>
+      <text x="92" y="256" opacity="0"> <set attributeName="opacity" to="1" begin="4.66s"/></text>
+      <text x="104" y="256" opacity="0">"<set attributeName="opacity" to="1" begin="4.72s"/></text>
+      <text x="116" y="256" opacity="0">e<set attributeName="opacity" to="1" begin="4.78s"/></text>
+      <text x="128" y="256" opacity="0">m<set attributeName="opacity" to="1" begin="4.84s"/></text>
+      <text x="140" y="256" opacity="0">a<set attributeName="opacity" to="1" begin="4.90s"/></text>
+      <text x="152" y="256" opacity="0">i<set attributeName="opacity" to="1" begin="4.96s"/></text>
+      <text x="164" y="256" opacity="0">l<set attributeName="opacity" to="1" begin="5.02s"/></text>
+      <text x="176" y="256" opacity="0">"<set attributeName="opacity" to="1" begin="5.08s"/></text>
+      <text x="188" y="256" opacity="0">:<set attributeName="opacity" to="1" begin="5.14s"/></text>
+      <text x="200" y="256" opacity="0"> <set attributeName="opacity" to="1" begin="5.20s"/></text>
+      <text x="212" y="256" opacity="0">"<set attributeName="opacity" to="1" begin="5.26s"/></text>
+      <text x="224" y="256" opacity="0">&lt;<set attributeName="opacity" to="1" begin="5.32s"/></text>
+      <text x="236" y="256" opacity="0">E<set attributeName="opacity" to="1" begin="5.38s"/></text>
+      <text x="248" y="256" opacity="0">M<set attributeName="opacity" to="1" begin="5.44s"/></text>
+      <text x="260" y="256" opacity="0">A<set attributeName="opacity" to="1" begin="5.50s"/></text>
+      <text x="272" y="256" opacity="0">I<set attributeName="opacity" to="1" begin="5.56s"/></text>
+      <text x="284" y="256" opacity="0">L<set attributeName="opacity" to="1" begin="5.62s"/></text>
+      <text x="296" y="256" opacity="0">&gt;<set attributeName="opacity" to="1" begin="5.68s"/></text>
+      <text x="308" y="256" opacity="0">"<set attributeName="opacity" to="1" begin="5.74s"/></text>
+      <text x="320" y="256" opacity="0">,<set attributeName="opacity" to="1" begin="5.80s"/></text>
+    </g>
+
+    <!-- RIGA 4:   "website": "<SITE>", -->
+    <g font-size="22" fill="#eaf2ff">
+      <text x="80" y="284" opacity="0"> <set attributeName="opacity" to="1" begin="6.00s"/></text>
+      <text x="92" y="284" opacity="0"> <set attributeName="opacity" to="1" begin="6.06s"/></text>
+      <text x="104" y="284" opacity="0">"<set attributeName="opacity" to="1" begin="6.12s"/></text>
+      <text x="116" y="284" opacity="0">w<set attributeName="opacity" to="1" begin="6.18s"/></text>
+      <text x="128" y="284" opacity="0">e<set attributeName="opacity" to="1" begin="6.24s"/></text>
+      <text x="140" y="284" opacity="0">b<set attributeName="opacity" to="1" begin="6.30s"/></text>
+      <text x="152" y="284" opacity="0">s<set attributeName="opacity" to="1" begin="6.36s"/></text>
+      <text x="164" y="284" opacity="0">i<set attributeName="opacity" to="1" begin="6.42s"/></text>
+      <text x="176" y="284" opacity="0">t<set attributeName="opacity" to="1" begin="6.48s"/></text>
+      <text x="188" y="284" opacity="0">e<set attributeName="opacity" to="1" begin="6.54s"/></text>
+      <text x="200" y="284" opacity="0">"<set attributeName="opacity" to="1" begin="6.60s"/></text>
+      <text x="212" y="284" opacity="0">:<set attributeName="opacity" to="1" begin="6.66s"/></text>
+      <text x="224" y="284" opacity="0"> <set attributeName="opacity" to="1" begin="6.72s"/></text>
+      <text x="236" y="284" opacity="0">"<set attributeName="opacity" to="1" begin="6.78s"/></text>
+      <text x="248" y="284" opacity="0">&lt;<set attributeName="opacity" to="1" begin="6.84s"/></text>
+      <text x="260" y="284" opacity="0">S<set attributeName="opacity" to="1" begin="6.90s"/></text>
+      <text x="272" y="284" opacity="0">I<set attributeName="opacity" to="1" begin="6.96s"/></text>
+      <text x="284" y="284" opacity="0">T<set attributeName="opacity" to="1" begin="7.02s"/></text>
+      <text x="296" y="284" opacity="0">E<set attributeName="opacity" to="1" begin="7.08s"/></text>
+      <text x="308" y="284" opacity="0">&gt;<set attributeName="opacity" to="1" begin="7.14s"/></text>
+      <text x="320" y="284" opacity="0">"<set attributeName="opacity" to="1" begin="7.20s"/></text>
+      <text x="332" y="284" opacity="0">,<set attributeName="opacity" to="1" begin="7.26s"/></text>
+    </g>
+
+    <!-- RIGA 5:   "skills": ["<SK1>", "<SK2>", "<SK3>"], -->
+    <g font-size="22" fill="#eaf2ff">
+      <text x="80" y="312" opacity="0"> <set attributeName="opacity" to="1" begin="7.50s"/></text>
+      <text x="92" y="312" opacity="0"> <set attributeName="opacity" to="1" begin="7.56s"/></text>
+      <text x="104" y="312" opacity="0">"<set attributeName="opacity" to="1" begin="7.62s"/></text>
+      <text x="116" y="312" opacity="0">s<set attributeName="opacity" to="1" begin="7.68s"/></text>
+      <text x="128" y="312" opacity="0">k<set attributeName="opacity" to="1" begin="7.74s"/></text>
+      <text x="140" y="312" opacity="0">i<set attributeName="opacity" to="1" begin="7.80s"/></text>
+      <text x="152" y="312" opacity="0">l<set attributeName="opacity" to="1" begin="7.86s"/></text>
+      <text x="164" y="312" opacity="0">l<set attributeName="opacity" to="1" begin="7.92s"/></text>
+      <text x="176" y="312" opacity="0">s<set attributeName="opacity" to="1" begin="7.98s"/></text>
+      <text x="188" y="312" opacity="0">"<set attributeName="opacity" to="1" begin="8.04s"/></text>
+      <text x="200" y="312" opacity="0">:<set attributeName="opacity" to="1" begin="8.10s"/></text>
+      <text x="212" y="312" opacity="0"> <set attributeName="opacity" to="1" begin="8.16s"/></text>
+      <text x="224" y="312" opacity="0">[<set attributeName="opacity" to="1" begin="8.22s"/></text>
+      <text x="236" y="312" opacity="0">"<set attributeName="opacity" to="1" begin="8.28s"/></text>
+      <text x="248" y="312" opacity="0">&lt;<set attributeName="opacity" to="1" begin="8.34s"/></text>
+      <text x="260" y="312" opacity="0">S<set attributeName="opacity" to="1" begin="8.40s"/></text>
+      <text x="272" y="312" opacity="0">K<set attributeName="opacity" to="1" begin="8.46s"/></text>
+      <text x="284" y="312" opacity="0">1<set attributeName="opacity" to="1" begin="8.52s"/></text>
+      <text x="296" y="312" opacity="0">&gt;<set attributeName="opacity" to="1" begin="8.58s"/></text>
+      <text x="308" y="312" opacity="0">"<set attributeName="opacity" to="1" begin="8.64s"/></text>
+      <text x="320" y="312" opacity="0">,<set attributeName="opacity" to="1" begin="8.70s"/></text>
+      <text x="332" y="312" opacity="0"> <set attributeName="opacity" to="1" begin="8.76s"/></text>
+      <text x="344" y="312" opacity="0">"<set attributeName="opacity" to="1" begin="8.82s"/></text>
+      <text x="356" y="312" opacity="0">&lt;<set attributeName="opacity" to="1" begin="8.88s"/></text>
+      <text x="368" y="312" opacity="0">S<set attributeName="opacity" to="1" begin="8.94s"/></text>
+      <text x="380" y="312" opacity="0">K<set attributeName="opacity" to="1" begin="9.00s"/></text>
+      <text x="392" y="312" opacity="0">2<set attributeName="opacity" to="1" begin="9.06s"/></text>
+      <text x="404" y="312" opacity="0">&gt;<set attributeName="opacity" to="1" begin="9.12s"/></text>
+      <text x="416" y="312" opacity="0">"<set attributeName="opacity" to="1" begin="9.18s"/></text>
+      <text x="428" y="312" opacity="0">,<set attributeName="opacity" to="1" begin="9.24s"/></text>
+      <text x="440" y="312" opacity="0"> <set attributeName="opacity" to="1" begin="9.30s"/></text>
+      <text x="452" y="312" opacity="0">"<set attributeName="opacity" to="1" begin="9.36s"/></text>
+      <text x="464" y="312" opacity="0">&lt;<set attributeName="opacity" to="1" begin="9.42s"/></text>
+      <text x="476" y="312" opacity="0">S<set attributeName="opacity" to="1" begin="9.48s"/></text>
+      <text x="488" y="312" opacity="0">K<set attributeName="opacity" to="1" begin="9.54s"/></text>
+      <text x="500" y="312" opacity="0">3<set attributeName="opacity" to="1" begin="9.60s"/></text>
+      <text x="512" y="312" opacity="0">&gt;<set attributeName="opacity" to="1" begin="9.66s"/></text>
+      <text x="524" y="312" opacity="0">"<set attributeName="opacity" to="1" begin="9.72s"/></text>
+      <text x="536" y="312" opacity="0">]<set attributeName="opacity" to="1" begin="9.78s"/></text>
+      <text x="548" y="312" opacity="0">,<set attributeName="opacity" to="1" begin="9.84s"/></text>
+    </g>
+
+    <!-- RIGA 6:   "bio": "<SHORT_BIO>" -->
+    <g font-size="22" fill="#eaf2ff">
+      <text x="80" y="340" opacity="0"> <set attributeName="opacity" to="1" begin="10.04s"/></text>
+      <text x="92" y="340" opacity="0"> <set attributeName="opacity" to="1" begin="10.10s"/></text>
+      <text x="104" y="340" opacity="0">"<set attributeName="opacity" to="1" begin="10.16s"/></text>
+      <text x="116" y="340" opacity="0">b<set attributeName="opacity" to="1" begin="10.22s"/></text>
+      <text x="128" y="340" opacity="0">i<set attributeName="opacity" to="1" begin="10.28s"/></text>
+      <text x="140" y="340" opacity="0">o<set attributeName="opacity" to="1" begin="10.34s"/></text>
+      <text x="152" y="340" opacity="0">"<set attributeName="opacity" to="1" begin="10.40s"/></text>
+      <text x="164" y="340" opacity="0">:<set attributeName="opacity" to="1" begin="10.46s"/></text>
+      <text x="176" y="340" opacity="0"> <set attributeName="opacity" to="1" begin="10.52s"/></text>
+      <text x="188" y="340" opacity="0">"<set attributeName="opacity" to="1" begin="10.58s"/></text>
+      <text x="200" y="340" opacity="0">&lt;<set attributeName="opacity" to="1" begin="10.64s"/></text>
+      <text x="212" y="340" opacity="0">S<set attributeName="opacity" to="1" begin="10.70s"/></text>
+      <text x="224" y="340" opacity="0">H<set attributeName="opacity" to="1" begin="10.76s"/></text>
+      <text x="236" y="340" opacity="0">O<set attributeName="opacity" to="1" begin="10.82s"/></text>
+      <text x="248" y="340" opacity="0">R<set attributeName="opacity" to="1" begin="10.88s"/></text>
+      <text x="260" y="340" opacity="0">T<set attributeName="opacity" to="1" begin="10.94s"/></text>
+      <text x="272" y="340" opacity="0">_<set attributeName="opacity" to="1" begin="11.00s"/></text>
+      <text x="284" y="340" opacity="0">B<set attributeName="opacity" to="1" begin="11.06s"/></text>
+      <text x="296" y="340" opacity="0">I<set attributeName="opacity" to="1" begin="11.12s"/></text>
+      <text x="308" y="340" opacity="0">O<set attributeName="opacity" to="1" begin="11.18s"/></text>
+      <text x="320" y="340" opacity="0">"<set attributeName="opacity" to="1" begin="11.24s"/></text>
+    </g>
+
+    <!-- Chiusura } -->
+    <text x="80" y="368" font-size="22" fill="#eaf2ff" opacity="0">}
+      <set attributeName="opacity" to="1" begin="11.80s"/>
+    </text>
+
+    <!-- Cursore Vim (per-carattere, salti con <set>) -->
     <rect x="80" y="182" width="12" height="22" fill="#a5b4fc" opacity="0">
+      <!-- appare quando inizia a scrivere -->
       <set attributeName="opacity" to="1" begin="3.00s"/>
-      <!-- riga1 dopo "{" -->
-      <set attributeName="x" to="92" begin="3.00s"/>
-      <set attributeName="y" to="210" begin="3.60s"/>
-      <!-- riga2 fine -->
-      <set attributeName="x" to="404" begin="3.60s"/>
-      <set attributeName="y" to="238" begin="4.80s"/>
-      <!-- riga3 fine -->
-      <set attributeName="x" to="430" begin="4.80s"/>
+      <!-- line 1 -->
+      <set attributeName="y" to="182" begin="3.00s"/>
+      <set attributeName="x" to="92"  begin="3.00s"/>
+      <!-- line 2 -->
+      <set attributeName="y" to="210" begin="3.36s"/>
+      <!-- (salti generati per ogni char di riga 2) -->
+      <set attributeName="x" to="92"  begin="3.36s"/>
+      <set attributeName="x" to="104" begin="3.42s"/>
+      <set attributeName="x" to="116" begin="3.48s"/>
+      <set attributeName="x" to="128" begin="3.54s"/>
+      <set attributeName="x" to="140" begin="3.60s"/>
+      <set attributeName="x" to="152" begin="3.66s"/>
+      <set attributeName="x" to="164" begin="3.72s"/>
+      <set attributeName="x" to="176" begin="3.78s"/>
+      <set attributeName="x" to="188" begin="3.84s"/>
+      <set attributeName="x" to="200" begin="3.90s"/>
+      <set attributeName="x" to="212" begin="3.96s"/>
+      <set attributeName="x" to="224" begin="4.02s"/>
+      <set attributeName="x" to="236" begin="4.08s"/>
+      <set attributeName="x" to="248" begin="4.14s"/>
+      <set attributeName="x" to="260" begin="4.20s"/>
+      <set attributeName="x" to="272" begin="4.26s"/>
+      <set attributeName="x" to="284" begin="4.32s"/>
+      <set attributeName="x" to="296" begin="4.38s"/>
+      <set attributeName="x" to="308" begin="4.44s"/>
+      <!-- line 3 -->
+      <set attributeName="y" to="238" begin="4.60s"/>
+      <set attributeName="x" to="92"  begin="4.60s"/>
+      <set attributeName="x" to="104" begin="4.66s"/>
+      <set attributeName="x" to="116" begin="4.72s"/>
+      <set attributeName="x" to="128" begin="4.78s"/>
+      <set attributeName="x" to="140" begin="4.84s"/>
+      <set attributeName="x" to="152" begin="4.90s"/>
+      <set attributeName="x" to="164" begin="4.96s"/>
+      <set attributeName="x" to="176" begin="5.02s"/>
+      <set attributeName="x" to="188" begin="5.08s"/>
+      <set attributeName="x" to="200" begin="5.14s"/>
+      <set attributeName="x" to="212" begin="5.20s"/>
+      <set attributeName="x" to="224" begin="5.26s"/>
+      <set attributeName="x" to="236" begin="5.32s"/>
+      <set attributeName="x" to="248" begin="5.38s"/>
+      <set attributeName="x" to="260" begin="5.44s"/>
+      <set attributeName="x" to="272" begin="5.50s"/>
+      <set attributeName="x" to="284" begin="5.56s"/>
+      <set attributeName="x" to="296" begin="5.62s"/>
+      <set attributeName="x" to="308" begin="5.68s"/>
+      <set attributeName="x" to="320" begin="5.74s"/>
+      <!-- line 4 -->
       <set attributeName="y" to="266" begin="6.00s"/>
-      <!-- riga4 fine -->
-      <set attributeName="x" to="604" begin="6.00s"/>
+      <set attributeName="x" to="92"  begin="6.00s"/>
+      <set attributeName="x" to="104" begin="6.06s"/>
+      <set attributeName="x" to="116" begin="6.12s"/>
+      <set attributeName="x" to="128" begin="6.18s"/>
+      <set attributeName="x" to="140" begin="6.24s"/>
+      <set attributeName="x" to="152" begin="6.30s"/>
+      <set attributeName="x" to="164" begin="6.36s"/>
+      <set attributeName="x" to="176" begin="6.42s"/>
+      <set attributeName="x" to="188" begin="6.48s"/>
+      <set attributeName="x" to="200" begin="6.54s"/>
+      <set attributeName="x" to="212" begin="6.60s"/>
+      <set attributeName="x" to="224" begin="6.66s"/>
+      <set attributeName="x" to="236" begin="6.72s"/>
+      <set attributeName="x" to="248" begin="6.78s"/>
+      <set attributeName="x" to="260" begin="6.84s"/>
+      <set attributeName="x" to="272" begin="6.90s"/>
+      <set attributeName="x" to="284" begin="6.96s"/>
+      <set attributeName="x" to="296" begin="7.02s"/>
+      <set attributeName="x" to="308" begin="7.08s"/>
+      <set attributeName="x" to="320" begin="7.14s"/>
+      <set attributeName="x" to="332" begin="7.20s"/>
+      <!-- line 5 -->
       <set attributeName="y" to="294" begin="7.50s"/>
-      <!-- riga5 fine -->
-      <set attributeName="x" to="748" begin="7.50s"/>
-      <set attributeName="y" to="322" begin="9.40s"/>
-      <!-- riga6 fine -->
-      <set attributeName="x" to="430" begin="9.40s"/>
-      <!-- blink semplice -->
-      <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite" begin="3.00s"/>
+      <set attributeName="x" to="92"  begin="7.50s"/>
+      <set attributeName="x" to="104" begin="7.56s"/>
+      <set attributeName="x" to="116" begin="7.62s"/>
+      <set attributeName="x" to="128" begin="7.68s"/>
+      <set attributeName="x" to="140" begin="7.74s"/>
+      <set attributeName="x" to="152" begin="7.80s"/>
+      <set attributeName="x" to="164" begin="7.86s"/>
+      <set attributeName="x" to="176" begin="7.92s"/>
+      <set attributeName="x" to="188" begin="7.98s"/>
+      <set attributeName="x" to="200" begin="8.04s"/>
+      <set attributeName="x" to="212" begin="8.10s"/>
+      <set attributeName="x" to="224" begin="8.16s"/>
+      <set attributeName="x" to="236" begin="8.22s"/>
+      <set attributeName="x" to="248" begin="8.28s"/>
+      <set attributeName="x" to="260" begin="8.34s"/>
+      <set attributeName="x" to="272" begin="8.40s"/>
+      <set attributeName="x" to="284" begin="8.46s"/>
+      <set attributeName="x" to="296" begin="8.52s"/>
+      <set attributeName="x" to="308" begin="8.58s"/>
+      <set attributeName="x" to="320" begin="8.64s"/>
+      <set attributeName="x" to="332" begin="8.70s"/>
+      <set attributeName="x" to="344" begin="8.76s"/>
+      <set attributeName="x" to="356" begin="8.82s"/>
+      <set attributeName="x" to="368" begin="8.88s"/>
+      <set attributeName="x" to="380" begin="8.94s"/>
+      <set attributeName="x" to="392" begin="9.00s"/>
+      <set attributeName="x" to="404" begin="9.06s"/>
+      <set attributeName="x" to="416" begin="9.12s"/>
+      <set attributeName="x" to="428" begin="9.18s"/>
+      <set attributeName="x" to="440" begin="9.24s"/>
+      <set attributeName="x" to="452" begin="9.30s"/>
+      <set attributeName="x" to="464" begin="9.36s"/>
+      <set attributeName="x" to="476" begin="9.42s"/>
+      <set attributeName="x" to="488" begin="9.48s"/>
+      <set attributeName="x" to="500" begin="9.54s"/>
+      <set attributeName="x" to="512" begin="9.60s"/>
+      <set attributeName="x" to="524" begin="9.66s"/>
+      <set attributeName="x" to="536" begin="9.72s"/>
+      <set attributeName="x" to="548" begin="9.78s"/>
+      <set attributeName="x" to="560" begin="9.84s"/>
+      <!-- line 6 -->
+      <set attributeName="y" to="322" begin="10.04s"/>
+      <set attributeName="x" to="92"  begin="10.04s"/>
+      <set attributeName="x" to="104" begin="10.10s"/>
+      <set attributeName="x" to="116" begin="10.16s"/>
+      <set attributeName="x" to="128" begin="10.22s"/>
+      <set attributeName="x" to="140" begin="10.28s"/>
+      <set attributeName="x" to="152" begin="10.34s"/>
+      <set attributeName="x" to="164" begin="10.40s"/>
+      <set attributeName="x" to="176" begin="10.46s"/>
+      <set attributeName="x" to="188" begin="10.52s"/>
+      <set attributeName="x" to="200" begin="10.58s"/>
+      <set attributeName="x" to="212" begin="10.64s"/>
+      <set attributeName="x" to="224" begin="10.70s"/>
+      <set attributeName="x" to="236" begin="10.76s"/>
+      <set attributeName="x" to="248" begin="10.82s"/>
+      <set attributeName="x" to="260" begin="10.88s"/>
+      <set attributeName="x" to="272" begin="10.94s"/>
+      <set attributeName="x" to="284" begin="11.00s"/>
+      <set attributeName="x" to="296" begin="11.06s"/>
+      <set attributeName="x" to="308" begin="11.12s"/>
+      <set attributeName="x" to="320" begin="11.18s"/>
+      <set attributeName="x" to="332" begin="11.24s"/>
     </rect>
 
     <!-- fade in editor -->
