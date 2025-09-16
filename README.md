@@ -1,4 +1,4 @@
-![](https://github.com/Giunco171/Giunco171/edit/main/README_header.png)
+![](https://github.com/Giunco171/Giunco171/blob/main/README_header.png)
 
 <div align="center">
 
