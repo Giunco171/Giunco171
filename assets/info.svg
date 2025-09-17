@@ -43,12 +43,10 @@
 
     <!-- Prompt attivo in basso -->
     <g id="active-line">
-      <text x="60" y="404">
-        <tspan fill="#19c37d">giovanni</tspan>
-        <tspan fill="#93a3b8">@</tspan>
-        <tspan fill="#00bcd4">parrot</tspan>
-        <tspan fill="#93a3b8">:~/projects$ </tspan>
-      </text>
+      <text x="60" y="404" fill="#19c37d">giovanni</text>
+      <text x="154" y="404" fill="#93a3b8">@</text>
+      <text x="170" y="404" fill="#00bcd4">parrot</text>
+      <text x="230" y="404" fill="#93a3b8">:~/projects$</text>
 
       <!-- Comando digitato (per carattere) -->
       <text x="400" y="404" opacity="0">v<set attributeName="opacity" to="1" begin="0.60s"/></text>
