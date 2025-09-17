@@ -107,9 +107,20 @@
 
     <!-- numeri riga (dall'alto) -->
     <g font-size="16" fill="#3a495d">
-      <text x="52" y="110">1</text><text x="52" y="138">2</text><text x="52" y="166">3</text>
-      <text x="52" y="194">4</text><text x="52" y="222">5</text><text x="52" y="250">6</text>
+      <text x="52" y="110">1</text>
+      <text x="52" y="138">2</text>
+      <text x="52" y="166">3</text>
+      <text x="52" y="194">4</text>
+      <text x="52" y="222">5</text>
+      <text x="52" y="250">6</text>
       <text x="52" y="278">7</text>
+      <text x="52" y="306">8</text>
+      <text x="52" y="334">9</text>
+      <text x="52" y="362">10</text>
+      <text x="52" y="390">11</text>
+      <text x="52" y="418">12</text>
+      <text x="52" y="446">13</text>
+      <text x="52" y="474">14</text>
     </g>
 
     <!-- RIGA 1: { (top) -->
