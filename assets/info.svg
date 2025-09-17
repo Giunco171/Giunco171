@@ -49,27 +49,25 @@
       <text x="235" y="404" fill="#93a3b8">:~/projects$</text>
 
       <!-- Comando digitato (per carattere) -->
-      <text x="360" y="404" opacity="0">v<set attributeName="opacity" to="1" begin="0.60s"/></text>
-      <text x="372" y="404" opacity="0">i<set attributeName="opacity" to="1" begin="0.72s"/></text>
-      <text x="384" y="404" opacity="0">m<set attributeName="opacity" to="1" begin="0.84s"/></text>
-      <text x="396" y="404" opacity="0"> <set attributeName="opacity" to="1" begin="0.96s"/></text>
-      <text x="408" y="404" opacity="0">i<set attributeName="opacity" to="1" begin="1.08s"/></text>
-      <text x="420" y="404" opacity="0">n<set attributeName="opacity" to="1" begin="1.20s"/></text>
-      <text x="432" y="404" opacity="0">f<set attributeName="opacity" to="1" begin="1.32s"/></text>
-      <text x="444" y="404" opacity="0">o<set attributeName="opacity" to="1" begin="1.44s"/></text>
-      <text x="456" y="404" opacity="0">.<set attributeName="opacity" to="1" begin="1.56s"/></text>
-      <text x="468" y="404" opacity="0">j<set attributeName="opacity" to="1" begin="1.68s"/></text>
-      <text x="480" y="404" opacity="0">s<set attributeName="opacity" to="1" begin="1.80s"/></text>
-      <text x="492" y="404" opacity="0">o<set attributeName="opacity" to="1" begin="1.92s"/></text>
-      <text x="504" y="404" opacity="0">n<set attributeName="opacity" to="1" begin="2.04s"/></text>
-
-
+      <text x="375" y="404" opacity="0">v<set attributeName="opacity" to="1" begin="0.60s"/></text>
+      <text x="387" y="404" opacity="0">i<set attributeName="opacity" to="1" begin="0.72s"/></text>
+      <text x="399" y="404" opacity="0">m<set attributeName="opacity" to="1" begin="0.84s"/></text>
+      <text x="411" y="404" opacity="0"> <set attributeName="opacity" to="1" begin="0.96s"/></text>
+      <text x="423" y="404" opacity="0">i<set attributeName="opacity" to="1" begin="1.08s"/></text>
+      <text x="435" y="404" opacity="0">n<set attributeName="opacity" to="1" begin="1.20s"/></text>
+      <text x="447" y="404" opacity="0">f<set attributeName="opacity" to="1" begin="1.32s"/></text>
+      <text x="459" y="404" opacity="0">o<set attributeName="opacity" to="1" begin="1.44s"/></text>
+      <text x="471" y="404" opacity="0">.<set attributeName="opacity" to="1" begin="1.56s"/></text>
+      <text x="483" y="404" opacity="0">j<set attributeName="opacity" to="1" begin="1.68s"/></text>
+      <text x="495" y="404" opacity="0">s<set attributeName="opacity" to="1" begin="1.80s"/></text>
+      <text x="507" y="404" opacity="0">o<set attributeName="opacity" to="1" begin="1.92s"/></text>
+      <text x="519" y="404" opacity="0">n<set attributeName="opacity" to="1" begin="2.04s"/></text>
 
       <!-- Cursore shell (in basso) -->
-      <rect x="360" y="386" width="12" height="22" fill="#eaf2ff">
+      <rect x="375" y="386" width="12" height="22" fill="#eaf2ff">
         <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/>
         <animate attributeName="x" begin="0.60s" dur="1.44s" fill="freeze" calcMode="discrete"
-                 values="360;372;384;396;408;420;432;444;456;468;480;492;504;516"/>
+                 values="375;387;399;411;423;435;447;459;471;483;495;507;519;531"/>
       </rect>
     </g>
 
