@@ -8,7 +8,7 @@
 
 <a href="https://Giunco171.pythonanywhere.com/link">
   <img
-    src="https://Giunco171.pythonanywhere.com?spin=true&scan=false&eq_color=#1DB954&theme=dark"
+    src="https://Giunco171.pythonanywhere.com?spin=true&scan=false&eq_color=1DB954&theme=dark"
     alt="Current Spotify Song"
   />
 </a>
