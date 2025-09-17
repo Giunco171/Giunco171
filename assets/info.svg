@@ -70,9 +70,9 @@
       <rect x="400" y="386" width="12" height="22" fill="#eaf2ff">
         <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/>
         <animate attributeName="x" begin="0.60s" dur="1.44s" fill="freeze" calcMode="discrete"
-                 values="360;372;384;396;408;420;432;444;456;468;480;492;504;516"/>
+                 values="400;412;424;436;448;460;472;484;496;508;520;532;544;556"/>
       </rect>
-    </g>
+
 
     <!-- Messaggio -->
     <text x="60" y="430" font-size="16" fill="#7a8799" opacity="0">
