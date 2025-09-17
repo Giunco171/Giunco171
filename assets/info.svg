@@ -152,6 +152,111 @@
       <text x="320" y="138" opacity="0">,<set attributeName="opacity" to="1" begin="4.50s"/></text>
     </g>
 
+    <!-- RIGA 3 — "role": "student",  (y=166) -->
+    <g font-size="22" fill="#eaf2ff">
+      <text x="80" y="166" opacity="0"> <set attributeName="opacity" to="1" begin="4.70s"/></text>
+      <text x="92" y="166" opacity="0"> <set attributeName="opacity" to="1" begin="4.76s"/></text>
+      <text x="104" y="166" opacity="0">"<set attributeName="opacity" to="1" begin="4.82s"/></text>
+      <text x="116" y="166" opacity="0">r<set attributeName="opacity" to="1" begin="4.88s"/></text>
+      <text x="128" y="166" opacity="0">o<set attributeName="opacity" to="1" begin="4.94s"/></text>
+      <text x="140" y="166" opacity="0">l<set attributeName="opacity" to="1" begin="5.00s"/></text>
+      <text x="152" y="166" opacity="0">e<set attributeName="opacity" to="1" begin="5.06s"/></text>
+      <text x="164" y="166" opacity="0">"<set attributeName="opacity" to="1" begin="5.12s"/></text>
+      <text x="176" y="166" opacity="0">:<set attributeName="opacity" to="1" begin="5.18s"/></text>
+      <text x="188" y="166" opacity="0"> <set attributeName="opacity" to="1" begin="5.24s"/></text>
+      <text x="200" y="166" opacity="0">"<set attributeName="opacity" to="1" begin="5.30s"/></text>
+      <text x="212" y="166" opacity="0">s<set attributeName="opacity" to="1" begin="5.36s"/></text>
+      <text x="224" y="166" opacity="0">t<set attributeName="opacity" to="1" begin="5.42s"/></text>
+      <text x="236" y="166" opacity="0">u<set attributeName="opacity" to="1" begin="5.48s"/></text>
+      <text x="248" y="166" opacity="0">d<set attributeName="opacity" to="1" begin="5.54s"/></text>
+      <text x="260" y="166" opacity="0">e<set attributeName="opacity" to="1" begin="5.60s"/></text>
+      <text x="272" y="166" opacity="0">n<set attributeName="opacity" to="1" begin="5.66s"/></text>
+      <text x="284" y="166" opacity="0">t<set attributeName="opacity" to="1" begin="5.72s"/></text>
+      <text x="296" y="166" opacity="0">"<set attributeName="opacity" to="1" begin="5.78s"/></text>
+      <text x="308" y="166" opacity="0">,<set attributeName="opacity" to="1" begin="5.84s"/></text>
+    </g>
+    
+    <!-- RIGA 4 — "language_spoken": ["it","en"],  (y=194) -->
+    <g font-size="22" fill="#eaf2ff">
+      <text x="80"  y="194" opacity="0"> <set attributeName="opacity" to="1" begin="6.00s"/></text>
+      <text x="92"  y="194" opacity="0"> <set attributeName="opacity" to="1" begin="6.06s"/></text>
+      <text x="104" y="194" opacity="0">"<set attributeName="opacity" to="1" begin="6.12s"/></text>
+      <text x="116" y="194" opacity="0">l<set attributeName="opacity" to="1" begin="6.18s"/></text>
+      <text x="128" y="194" opacity="0">a<set attributeName="opacity" to="1" begin="6.24s"/></text>
+      <text x="140" y="194" opacity="0">n<set attributeName="opacity" to="1" begin="6.30s"/></text>
+      <text x="152" y="194" opacity="0">g<set attributeName="opacity" to="1" begin="6.36s"/></text>
+      <text x="164" y="194" opacity="0">u<set attributeName="opacity" to="1" begin="6.42s"/></text>
+      <text x="176" y="194" opacity="0">a<set attributeName="opacity" to="1" begin="6.48s"/></text>
+      <text x="188" y="194" opacity="0">g<set attributeName="opacity" to="1" begin="6.54s"/></text>
+      <text x="200" y="194" opacity="0">e<set attributeName="opacity" to="1" begin="6.60s"/></text>
+      <text x="212" y="194" opacity="0">_<set attributeName="opacity" to="1" begin="6.66s"/></text>
+      <text x="224" y="194" opacity="0">s<set attributeName="opacity" to="1" begin="6.72s"/></text>
+      <text x="236" y="194" opacity="0">p<set attributeName="opacity" to="1" begin="6.78s"/></text>
+      <text x="248" y="194" opacity="0">o<set attributeName="opacity" to="1" begin="6.84s"/></text>
+      <text x="260" y="194" opacity="0">k<set attributeName="opacity" to="1" begin="6.90s"/></text>
+      <text x="272" y="194" opacity="0">e<set attributeName="opacity" to="1" begin="6.96s"/></text>
+      <text x="284" y="194" opacity="0">n<set attributeName="opacity" to="1" begin="7.02s"/></text>
+      <text x="296" y="194" opacity="0">"<set attributeName="opacity" to="1" begin="7.08s"/></text>
+      <text x="308" y="194" opacity="0">:<set attributeName="opacity" to="1" begin="7.14s"/></text>
+      <text x="320" y="194" opacity="0"> <set attributeName="opacity" to="1" begin="7.20s"/></text>
+      <text x="332" y="194" opacity="0">[<set attributeName="opacity" to="1" begin="7.26s"/></text>
+      <text x="344" y="194" opacity="0">"<set attributeName="opacity" to="1" begin="7.32s"/></text>
+      <text x="356" y="194" opacity="0">i<set attributeName="opacity" to="1" begin="7.38s"/></text>
+      <text x="368" y="194" opacity="0">t<set attributeName="opacity" to="1" begin="7.44s"/></text>
+      <text x="380" y="194" opacity="0">"<set attributeName="opacity" to="1" begin="7.50s"/></text>
+      <text x="392" y="194" opacity="0">,<set attributeName="opacity" to="1" begin="7.56s"/></text>
+      <text x="404" y="194" opacity="0">"<set attributeName="opacity" to="1" begin="7.62s"/></text>
+      <text x="416" y="194" opacity="0">e<set attributeName="opacity" to="1" begin="7.68s"/></text>
+      <text x="428" y="194" opacity="0">n<set attributeName="opacity" to="1" begin="7.74s"/></text>
+      <text x="440" y="194" opacity="0">"<set attributeName="opacity" to="1" begin="7.80s"/></text>
+      <text x="452" y="194" opacity="0">]<set attributeName="opacity" to="1" begin="7.86s"/></text>
+      <text x="464" y="194" opacity="0">,<set attributeName="opacity" to="1" begin="7.92s"/></text>
+    </g>
+    
+    <!-- RIGA 5 — "real_language_spoken": ["C++"],  (y=222) -->
+    <g font-size="22" fill="#eaf2ff">
+      <text x="80" y="222" opacity="0"> <set attributeName="opacity" to="1" begin="7.50s"/></text>
+      <text x="92" y="222" opacity="0"> <set attributeName="opacity" to="1" begin="7.56s"/></text>
+      <text x="104" y="222" opacity="0">"<set attributeName="opacity" to="1" begin="7.62s"/></text>
+      <text x="116" y="222" opacity="0">r<set attributeName="opacity" to="1" begin="7.68s"/></text>
+      <text x="128" y="222" opacity="0">e<set attributeName="opacity" to="1" begin="7.74s"/></text>
+      <text x="140" y="222" opacity="0">a<set attributeName="opacity" to="1" begin="7.80s"/></text>
+      <text x="152" y="222" opacity="0">l<set attributeName="opacity" to="1" begin="7.86s"/></text>
+      <text x="164" y="222" opacity="0">_<set attributeName="opacity" to="1" begin="7.92s"/></text>
+      <text x="176" y="222" opacity="0">l<set attributeName="opacity" to="1" begin="7.98s"/></text>
+      <text x="188" y="222" opacity="0">a<set attributeName="opacity" to="1" begin="8.04s"/></text>
+      <text x="200" y="222" opacity="0">n<set attributeName="opacity" to="1" begin="8.10s"/></text>
+      <text x="212" y="222" opacity="0">g<set attributeName="opacity" to="1" begin="8.16s"/></text>
+      <text x="224" y="222" opacity="0">u<set attributeName="opacity" to="1" begin="8.22s"/></text>
+      <text x="236" y="222" opacity="0">a<set attributeName="opacity" to="1" begin="8.28s"/></text>
+      <text x="248" y="222" opacity="0">g<set attributeName="opacity" to="1" begin="8.34s"/></text>
+      <text x="260" y="222" opacity="0">e<set attributeName="opacity" to="1" begin="8.40s"/></text>
+      <text x="272" y="222" opacity="0">_<set attributeName="opacity" to="1" begin="8.46s"/></text>
+      <text x="284" y="222" opacity="0">s<set attributeName="opacity" to="1" begin="8.52s"/></text>
+      <text x="296" y="222" opacity="0">p<set attributeName="opacity" to="1" begin="8.58s"/></text>
+      <text x="308" y="222" opacity="0">o<set attributeName="opacity" to="1" begin="8.64s"/></text>
+      <text x="320" y="222" opacity="0">k<set attributeName="opacity" to="1" begin="8.70s"/></text>
+      <text x="332" y="222" opacity="0">e<set attributeName="opacity" to="1" begin="8.76s"/></text>
+      <text x="344" y="222" opacity="0">n<set attributeName="opacity" to="1" begin="8.82s"/></text>
+      <text x="356" y="222" opacity="0">"<set attributeName="opacity" to="1" begin="8.88s"/></text>
+      <text x="368" y="222" opacity="0">:<set attributeName="opacity" to="1" begin="8.94s"/></text>
+      <text x="380" y="222" opacity="0"> <set attributeName="opacity" to="1" begin="9.00s"/></text>
+      <text x="392" y="222" opacity="0">[<set attributeName="opacity" to="1" begin="9.06s"/></text>
+      <text x="404" y="222" opacity="0">"<set attributeName="opacity" to="1" begin="9.12s"/></text>
+      <text x="416" y="222" opacity="0">C<set attributeName="opacity" to="1" begin="9.18s"/></text>
+      <text x="428" y="222" opacity="0">+<set attributeName="opacity" to="1" begin="9.24s"/></text>
+      <text x="440" y="222" opacity="0">+<set attributeName="opacity" to="1" begin="9.30s"/></text>
+      <text x="452" y="222" opacity="0">"<set attributeName="opacity" to="1" begin="9.36s"/></text>
+      <text x="464" y="222" opacity="0">]<set attributeName="opacity" to="1" begin="9.42s"/></text>
+      <text x="476" y="222" opacity="0">,<set attributeName="opacity" to="1" begin="9.48s"/></text>
+    </g>
+    
+    <!-- RIGA 6 — }  (y=250, senza virgola) -->
+    <g font-size="22" fill="#eaf2ff">
+      <text x="80" y="250" opacity="0">}<set attributeName="opacity" to="1" begin="10.00s"/></text>
+    </g>
+
+
 
     <!-- (Le altre righe e il cursore Vim restano come nel tuo messaggio) -->
     <!-- ... incolla qui l'intero blocco Vim rimanente identico al tuo testo ... -->
