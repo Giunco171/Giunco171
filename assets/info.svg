@@ -72,6 +72,7 @@
         <animate attributeName="x" begin="0.60s" dur="1.44s" fill="freeze" calcMode="discrete"
                  values="400;412;424;436;448;460;472;484;496;508;520;532;544;556"/>
       </rect>
+    </g>
 
 
     <!-- Messaggio -->
