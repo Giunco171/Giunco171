@@ -17,6 +17,8 @@
   <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/info.svg" width="800" />
 </h1>
 
+<img src = "https://github.com/Giunco171/Giunco171/blob/main/images/about_me.gif?raw=true" width = 35>&nbsp;***About me***
+
 <a href="https://Giunco171.pythonanywhere.com/link">
   <img
     src="https://Giunco171.pythonanywhere.com?spin=true&scan=false&eq_color=1DB954&theme=dark"
