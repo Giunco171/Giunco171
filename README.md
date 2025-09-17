@@ -7,12 +7,16 @@
     You may also want to connect with me on LinkedIn @TODO <3
 -->
 
+<!-- Header -->
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=19c37d&height=120&section=header" alt="header"/> 
 
+<!-- Name (season dependent) -->
 <div align="center">
   <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/name.svg" alt="Giovanni Pascuzzi" />
 </div>
 
+<!-- First Divider -->
+<img width=100% src="https://capsule-render.vercel.app/api?type=venom&height=300&color=19c37d&textBg=false" alt="divider"/> 
 
 <img src = "https://github.com/Giunco171/Giunco171/blob/main/images/about_me.gif?raw=true" width = 35>&nbsp;***About me***
 
