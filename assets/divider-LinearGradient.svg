@@ -1,0 +1,12 @@
+<!-- Divider con gradiente 270° (da #19c37d a #00bcd4, destra→sinistra) -->
+<svg width="100%" height="8" viewBox="0 0 100 8" role="separator" aria-hidden="true">
+  <defs>
+    <!-- 270deg = verso sinistra: x1=100% → x2=0% -->
+    <linearGradient id="grad-270" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#19c37d"/>
+      <stop offset="100%" stop-color="#00bcd4"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="100" height="8" rx="4" fill="url(#grad-270)" />
+</svg>
