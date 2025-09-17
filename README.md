@@ -20,7 +20,7 @@
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/info.svg" width="800" />
-<\div>
+</div>
 
 <img src = "https://github.com/Giunco171/Giunco171/blob/main/images/about_me.gif?raw=true" width = 35>&nbsp;***About me***
 
