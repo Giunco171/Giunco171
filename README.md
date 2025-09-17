@@ -2,7 +2,9 @@
   <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/name.svg" alt="Marton Lederer" />
 </h1>
 
-<img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/info.svg" width="800" />
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/info.svg" width="800" />
+</h1>
 
 <a href="https://Giunco171.pythonanywhere.com/link">
   <img
