@@ -6,13 +6,13 @@
 
   <!-- title bar più scura (stile Parrot) -->
   <!-- rect x="30" y="30" width="800" height="36" fill="#0f172a"/ -->
-  <path d="M38,30 
-         H822 
-         A8,8 0 0 1 830,38 
-         V66 
-         H30 
-         V38 
-         A8,8 0 0 1 38,30 
+  <path d="M44,30
+         H816
+         A14,14 0 0 1 830,44
+         V66
+         H30
+         V44
+         A14,14 0 0 1 44,30
          Z"
       fill="#0f172a"/>
 
