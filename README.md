@@ -1,5 +1,6 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/name.svg" alt="Marton Lederer" />
+  <object data="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/name.svg" type="image/svg+xml" alt="Giovanni Pascuzzi"></object>
+  <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/name.svg" alt="Giovanni Pascuzzi" />
 </h1>
 
 <h1 align="center">
