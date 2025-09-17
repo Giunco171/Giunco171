@@ -13,7 +13,6 @@
   <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/name.svg" alt="Giovanni Pascuzzi" />
 </div>
 
-![Animated divider](https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/divider-LinearGradient.svg)
 
 <img src = "https://github.com/Giunco171/Giunco171/blob/main/images/about_me.gif?raw=true" width = 35>&nbsp;***About me***
 
