@@ -5,7 +5,16 @@
   <rect x="30" y="30" width="800" height="440" rx="14" ry="14" fill="#0b1220" stroke="#1f2937"/>
 
   <!-- title bar più scura (stile Parrot) -->
-  <rect x="30" y="30" width="800" height="36" fill="#0f172a"/>
+  <!-- rect x="30" y="30" width="800" height="36" fill="#0f172a"/ -->
+  <path d="M38,30 
+         H822 
+         A8,8 0 0 1 830,38 
+         V66 
+         H30 
+         V38 
+         A8,8 0 0 1 38,30 
+         Z"
+      fill="#0f172a"/>
 
   <!-- 3 pallini in alto a sinistra -->
   <circle cx="56" cy="48" r="6" fill="#ff5f56" stroke="#1f2937"/>
