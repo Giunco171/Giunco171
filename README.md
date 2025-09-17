@@ -9,15 +9,17 @@
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=19c37d&height=120&section=header" alt="header"/> 
 
-<h1 align="center">
+<div align="center">
   <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/name.svg" alt="Giovanni Pascuzzi" />
-</h1>
+</div>
 
-<h1 align="center">
+<div align="center">
   <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/info.svg" width="800" />
-</h1>
+</div>
 
 <img src = "https://github.com/Giunco171/Giunco171/blob/main/images/about_me.gif?raw=true" width = 35>&nbsp;***About me***
+
+<img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width ="30">&nbsp; ***Skills***
 
 <a href="https://Giunco171.pythonanywhere.com/link">
   <img
