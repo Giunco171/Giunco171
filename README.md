@@ -31,6 +31,8 @@
   </tr>
 </table>
 
+<img width=100% height=100px src="https://capsule-render.vercel.app/api?type=cylinder&height=300&color=19c37d&textBg=false" alt="divider">
+
 <div align="center">
     <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/info.svg" width="800" />
 </div>
