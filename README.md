@@ -43,7 +43,7 @@
 <!-- Cacoon -->
 <!-- img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHdhOXN1b3RkdWNvZ3g5YzhqeDByNHZ3czV6Nzl5aWYwZndrZ3oxNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OP4C9oeeSVIrwgFNAk/giphy.gif" width ="30">&nbsp; ***Vibe with Me***
 <!-- Spotify Real Time playing song -->
-<a href="https://Giunco171.pythonanywhere.com/link">
+<a href="https://Giunco171.pythonanywhere.com/link" align="center">
   <img
     src="https://Giunco171.pythonanywhere.com?spin=true&scan=false&eq_color=1DB954&theme=dark"
     alt="Current Spotify Song"
