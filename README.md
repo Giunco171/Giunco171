@@ -38,7 +38,8 @@
 <!-- Fourth Divider -->
 <img width=100% height=100px src="https://capsule-render.vercel.app/api?type=venom&height=300&color=19c37d&textBg=false" alt="divider"/> 
 
-
+<!-- Music Section -->
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTZoNjdzYTJmOXhoNjhpc2lic2YwOWU5bmNubjU3bDJ5djdyamFmNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/TeBpzQZRaBIC4/giphy.gif" width ="30">&nbsp; ***Vibe with Me***
 <!-- Spotify Real Time playing song -->
 <a href="https://Giunco171.pythonanywhere.com/link">
   <img
