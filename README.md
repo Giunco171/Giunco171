@@ -23,19 +23,16 @@
 <!-- First Divider -->
 <img width=100% height=100px src="https://capsule-render.vercel.app/api?type=venom&height=300&color=19c37d&textBg=false" alt="divider"/> 
 
-<!-- Second Divider -->
-<img width=100% height=100px src="https://capsule-render.vercel.app/api?type=venom&height=300&color=19c37d&textBg=false" alt="divider"/> 
-
 <!-- About me section -->
 <img src = "https://github.com/Giunco171/Giunco171/blob/main/images/about_me.gif?raw=true" width = 35>&nbsp;***About me***
 
-<!-- Third Divider -->
+<!-- Second Divider -->
 <img width=100% height=100px src="https://capsule-render.vercel.app/api?type=venom&height=300&color=19c37d&textBg=false" alt="divider"/> 
 
 <!-- Skills sections -->
 <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width ="30">&nbsp; ***Skills***
 
-<!-- Fourth Divider -->
+<!-- Third Divider -->
 <img width=100% height=100px src="https://capsule-render.vercel.app/api?type=venom&height=300&color=19c37d&textBg=false" alt="divider"/> 
 
 <!-- Music Section -->
