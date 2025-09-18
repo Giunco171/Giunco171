@@ -1,10 +1,10 @@
 <!--
     Who's there?! I'm Giovanni Pascuzzi!
-    What brings you here? Seems you're here exploring my README code
+    What brings you here? Seems you're here exploring my README code...
     Feel free to lurk!
     
     But may I please ask you to follow me in return? xoxoxo
-    You may also want to connect with me on LinkedIn @TODO <3
+    You may also want to connect with me on LinkedIn @GiovanniPascuzzi <3
 -->
 
 <!-- Shell info -->
@@ -63,5 +63,5 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=19c37d&height=120&section=footer" alt="footer"/>
 
 <!--
-     See you soon fella
+     See you soon fella!
 -->
