@@ -35,6 +35,8 @@
 
 <!-- Skills sections -->
 <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width ="30">&nbsp; ***Skills***
+<!-- Icon list -->
+[![My Skills](https://skillicons.dev/icons?i=angular,aws,azure,bash,c,cpp,css,debian,docker,eclipse,firebase,git,github,githubactions,html,idea,java,js,kali,latex,linux,maven,nginx,notion,php,postgres,postman,py,react,spring,sublime,selenium,solidity,tailwind,ubuntu,vim,visualstudio,vscode,windows&theme=dark)](https://skillicons.dev)
 
 <!-- Third Divider -->
 <img width=100% height=100px src="https://capsule-render.vercel.app/api?type=venom&height=300&color=19c37d&textBg=false" alt="divider"/> 
