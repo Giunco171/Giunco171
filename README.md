@@ -27,7 +27,7 @@
 <img src = "https://github.com/Giunco171/Giunco171/blob/main/images/about_me.gif?raw=true" width = 35>&nbsp;***About me***
 <!-- About -->
 <div align="center">
-    <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/about.svg" width="100%" height=530px/>
+    <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/about.svg" width="100%" height=570px/>
 </div>
 
 <!-- Second Divider -->
