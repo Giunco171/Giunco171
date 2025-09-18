@@ -50,7 +50,7 @@
         alt="Current Spotify Song"
       />
     </a>
-<\div>
+</div>
 
 
 <!-- Footer -->
