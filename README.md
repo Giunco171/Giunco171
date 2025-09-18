@@ -42,9 +42,9 @@
 <!-- Snoop dogg -->
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTZoNjdzYTJmOXhoNjhpc2lic2YwOWU5bmNubjU3bDJ5djdyamFmNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/TeBpzQZRaBIC4/giphy.gif" width ="30">&nbsp; ***Vibe with Me***
 <!-- Vibing cat -->
-<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjYxdmF6MXg4OHk5bnJkNXJuNWcwdHVoOXJkazBhaXJ6bzhyaHFmbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/h7deZA51Ru9pwzlz0C/giphy.gif" width ="30">&nbsp; ***Vibe with Me***
+<!-- img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjYxdmF6MXg4OHk5bnJkNXJuNWcwdHVoOXJkazBhaXJ6bzhyaHFmbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/h7deZA51Ru9pwzlz0C/giphy.gif" width ="30">&nbsp; ***Vibe with Me***
 <!-- Cacoon -->
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHdhOXN1b3RkdWNvZ3g5YzhqeDByNHZ3czV6Nzl5aWYwZndrZ3oxNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OP4C9oeeSVIrwgFNAk/giphy.gif" width ="30">&nbsp; ***Vibe with Me***
+<!-- img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHdhOXN1b3RkdWNvZ3g5YzhqeDByNHZ3czV6Nzl5aWYwZndrZ3oxNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OP4C9oeeSVIrwgFNAk/giphy.gif" width ="30">&nbsp; ***Vibe with Me***
 <!-- Spotify Real Time playing song -->
 <a href="https://Giunco171.pythonanywhere.com/link">
   <img
