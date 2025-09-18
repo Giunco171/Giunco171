@@ -17,7 +17,7 @@ text, tspan {white-space: pre;}
 </style>
 
 <!-- background -->
-<rect width="985px" height="430px" fill="#161b22" rx="15"/>
+<rect width="985px" height="450px" fill="#161b22" rx="15"/>
 
 <!-- content (no ASCII art; all text aligned from x=30) -->
 <text x="30" y="30" fill="#c9d1d9">
