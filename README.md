@@ -10,6 +10,11 @@
 <!-- Header -->
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=19c37d&height=120&section=header" alt="header"/> 
 
+<!-- Shell info -->
+<div align="center">
+    <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/info.svg" width="800" />
+</div>
+
 <!-- Name (season dependent) -->
 <div align="center">
   <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/name.svg" alt="Giovanni Pascuzzi" />
@@ -17,11 +22,6 @@
 
 <!-- First Divider -->
 <img width=100% height=100px src="https://capsule-render.vercel.app/api?type=venom&height=300&color=19c37d&textBg=false" alt="divider"/> 
-
-<!-- Shell info -->
-<div align="center">
-    <img src="https://raw.githubusercontent.com/Giunco171/Giunco171/main/assets/info.svg" width="800" />
-</div>
 
 <!-- Second Divider -->
 <img width=100% height=100px src="https://capsule-render.vercel.app/api?type=venom&height=300&color=19c37d&textBg=false" alt="divider"/> 
