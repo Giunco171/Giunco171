@@ -1,7 +1,8 @@
 // scripts/update_github_stats_svg.js
+// CommonJS - compatibile senza "type: module" e senza .mjs
 // Node 20+ (fetch globale)
 
-import { readFile, writeFile } from "node:fs/promises";
+const fs = require("node:fs/promises");
 
 const TOKEN = process.env.GITHUB_TOKEN;
 if (!TOKEN) {
@@ -19,7 +20,7 @@ if (!USERNAME) {
   process.exit(1);
 }
 
-const SVG_PATH = process.env.SVG_PATH || "assets/name.svg";
+const SVG_PATH = process.env.SVG_PATH || "assets/about.svg";
 const API = "https://api.github.com";
 
 const headers = {
@@ -29,9 +30,7 @@ const headers = {
   "User-Agent": "update-github-stats-svg",
 };
 
-function sleep(ms) {
-  return new Promise((r) => setTimeout(r, ms));
-}
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function ghJson(url, opts = {}) {
   const res = await fetch(url, { ...opts, headers: { ...headers, ...(opts.headers || {}) } });
@@ -42,7 +41,7 @@ async function ghJson(url, opts = {}) {
   return res.json();
 }
 
-// stats endpoints a volte rispondono 202 (calcolo in corso)
+// Endpoint stats a volte ritorna 202 (calcolo in corso)
 async function ghStatsJson(url, { retries = 8, delayMs = 1500 } = {}) {
   for (let i = 0; i <= retries; i++) {
     const res = await fetch(url, { headers });
@@ -155,14 +154,14 @@ async function listAllRepos() {
 
 async function main() {
   console.log(`Updating GitHub stats in SVG for user: ${USERNAME}`);
+  console.log(`SVG_PATH: ${SVG_PATH}`);
 
-  const svgOriginal = await readFile(SVG_PATH, "utf8");
+  const svgOriginal = await fs.readFile(SVG_PATH, "utf8");
 
   const basics = await getUserBasics();
   const contributedCount = await getContributedRepoCount();
   const repos = await listAllRepos();
 
-  // evita forks per stats aggregate
   const owned = repos.filter((r) => !r.fork);
 
   const stars = owned.reduce((acc, r) => acc + (r.stargazers_count ?? 0), 0);
@@ -189,7 +188,7 @@ async function main() {
   svg = replaceTspanById(svg, "contrib_data", formatInt(contributedCount));
   svg = replaceTspanById(svg, "commit_data", formatInt(commits52w));
 
-  // scelta: "touched lines" = add+del (puoi cambiare se vuoi)
+  // "touched lines" = additions + deletions (puoi cambiarlo se vuoi)
   svg = replaceTspanById(svg, "loc_data", formatInt(locAdd52w + locDel52w));
   svg = replaceTspanById(svg, "loc_add", formatInt(locAdd52w));
   svg = replaceTspanById(svg, "loc_del", formatInt(locDel52w));
@@ -198,7 +197,7 @@ async function main() {
   svg = replaceTspanById(svg, "follower_data", formatInt(basics.followers));
 
   if (svg !== svgOriginal) {
-    await writeFile(SVG_PATH, svg, "utf8");
+    await fs.writeFile(SVG_PATH, svg, "utf8");
     console.log("SVG updated.");
   } else {
     console.log("No changes detected.");
@@ -206,6 +205,6 @@ async function main() {
 }
 
 main().catch((e) => {
-  console.error(e);
+  console.error(e?.stack || e);
   process.exit(1);
 });
