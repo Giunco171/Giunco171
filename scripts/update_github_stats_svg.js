@@ -262,4 +262,37 @@ async function main() {
   let svg = svgOriginal;
 
   // aggiorna numeri
-  svg = replaceTspanById(svg, "repo_data", formatInt(ba_
+  svg = replaceTspanById(svg, "repo_data", formatInt(basics.public_repos));
+  svg = replaceTspanById(svg, "contrib_data", formatInt(contributedCount));
+  svg = replaceTspanById(svg, "commit_data", formatInt(commits52w));
+
+  // "touched lines" = additions + deletions (puoi cambiarlo se vuoi)
+  svg = replaceTspanById(svg, "loc_data", formatInt(locAdd52w + locDel52w));
+  svg = replaceTspanById(svg, "loc_add", formatInt(locAdd52w));
+  svg = replaceTspanById(svg, "loc_del", formatInt(locDel52w));
+
+  svg = replaceTspanById(svg, "star_data", formatInt(stars));
+  svg = replaceTspanById(svg, "follower_data", formatInt(basics.followers));
+
+  // riallinea puntini (INCLUSO contributed)
+  svg = adjustDotsToAlignValues(svg, [
+    { dotsId: "repo_data_dots", valueId: "repo_data" },
+    { dotsId: "contrib_data_dots", valueId: "contrib_data" },
+    { dotsId: "commit_data_dots", valueId: "commit_data" },
+    { dotsId: "loc_data_dots", valueId: "loc_data" },
+    { dotsId: "star_data_dots", valueId: "star_data" },
+    { dotsId: "follower_data_dots", valueId: "follower_data" },
+  ]);
+
+  if (svg !== svgOriginal) {
+    await fs.writeFile(SVG_PATH, svg, "utf8");
+    console.log("SVG updated.");
+  } else {
+    console.log("No changes detected.");
+  }
+}
+
+main().catch((e) => {
+  console.error(e?.stack || e);
+  process.exit(1);
+});
