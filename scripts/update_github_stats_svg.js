@@ -1,6 +1,5 @@
 // scripts/update_github_stats_svg.js
-// CommonJS - compatibile senza "type: module" e senza .mjs
-// Node 20+ (fetch globale)
+// CommonJS - Node 20+ (fetch globale)
 
 const fs = require("node:fs/promises");
 
@@ -22,6 +21,9 @@ if (!USERNAME) {
 
 const SVG_PATH = process.env.SVG_PATH || "assets/about.svg";
 const API = "https://api.github.com";
+
+// === CONFIG: line width ===
+const LINE_WIDTH = 99; // ogni riga GitHub Stats deve avere esattamente 99 caratteri
 
 const headers = {
   Authorization: `Bearer ${TOKEN}`,
@@ -54,6 +56,23 @@ async function ghStatsJson(url, { retries = 10, delayMs = 1500 } = {}) {
     return res.json();
   }
   return null;
+}
+
+async function graphql(query, variables = {}) {
+  const res = await fetch(`${API}/graphql`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ query, variables }),
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`GraphQL error ${res.status}: ${text}`);
+  }
+  const data = await res.json();
+  if (data.errors?.length) {
+    throw new Error(`GraphQL errors: ${JSON.stringify(data.errors)}`);
+  }
+  return data.data;
 }
 
 function sumCommits52w(commitActivity) {
@@ -97,92 +116,27 @@ function replaceTspanById(svg, id, newText) {
   return svg.replace(re, `$1${escaped}$3`);
 }
 
-function getTspanInner(svg, id) {
-  const re = new RegExp(`<tspan[^>]*\\bid="${id}"[^>]*>([\\s\\S]*?)</tspan>`, "m");
-  const m = svg.match(re);
-  return m ? m[1] : null;
-}
-
-function setTspanInner(svg, id, inner) {
-  const re = new RegExp(`(<tspan[^>]*\\bid="${id}"[^>]*>)([\\s\\S]*?)(</tspan>)`, "m");
-  if (!re.test(svg)) return svg;
-  return svg.replace(re, `$1${inner}$3`);
-}
-
-// Trasforma un pezzo di SVG in testo "visibile" (euristica sufficiente qui)
-function stripTagsToText(s) {
-  return s
-    .replace(/<[^>]+>/g, "")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">");
+function setDots(svg, dotsId, dotsCount) {
+  const n = Math.max(0, Math.trunc(dotsCount));
+  return replaceTspanById(svg, dotsId, ".".repeat(n));
 }
 
 /**
- * Riallinea i puntini per fare in modo che l'inizio dei valori (tspan valueId)
- * cada sempre nella stessa "colonna" (monospace).
- *
- * lines: [{ dotsId, valueId }]
+ * Applica la logica richiesta:
+ * - ogni riga deve avere LINE_WIDTH caratteri
+ * - dots = LINE_WIDTH - prefixLen - statsLen
+ * dove prefix e stats includono spazi (esattamente come appaiono nel SVG).
  */
-function adjustDotsToAlignValues(svg, lines) {
-  const infos = [];
+function applyDotsRule(svg, rules) {
+  for (const r of rules) {
+    const prefixLen = r.prefix.length;
+    const statsLen = r.stats.length;
+    const dots = LINE_WIDTH - prefixLen - statsLen;
 
-  for (const { dotsId, valueId } of lines) {
-    const dotsInner = getTspanInner(svg, dotsId);
-    const valueInner = getTspanInner(svg, valueId);
-    if (dotsInner == null || valueInner == null) continue;
-
-    // Trova il punto nel documento in cui appare il dots tspan
-    const idxDots = svg.indexOf(`id="${dotsId}"`);
-    if (idxDots === -1) continue;
-
-    // Prendi un contesto prima dei dots (abbastanza grande)
-    const start = Math.max(0, idxDots - 900);
-    const chunk = svg.slice(start, idxDots);
-
-    // Cerca l'ultimo "inizio riga" (il tspan con x=30 y=...)
-    const anchor = chunk.lastIndexOf('<tspan x="30" y="');
-    const prefixChunk = anchor !== -1 ? chunk.slice(anchor) : chunk;
-
-    const prefixText = stripTagsToText(prefixChunk);
-    const currentDotsLen = stripTagsToText(dotsInner).length;
-
-    infos.push({
-      dotsId,
-      prefixLen: prefixText.length,
-      currentDotsLen,
-    });
+    // Se stats troppo lunghe, dots diventa negativo => clamp a 0
+    svg = setDots(svg, r.dotsId, dots);
   }
-
-  if (infos.length === 0) return svg;
-
-  // Colonna target: la più a destra tra tutte le righe (stato attuale)
-  const targetCol = Math.max(...infos.map((i) => i.prefixLen + i.currentDotsLen));
-
-  // Riscrivi puntini per far combaciare la colonna target
-  for (const i of infos) {
-    const needed = Math.max(0, targetCol - i.prefixLen);
-    svg = setTspanInner(svg, i.dotsId, ".".repeat(needed));
-  }
-
   return svg;
-}
-
-async function graphql(query, variables = {}) {
-  const res = await fetch(`${API}/graphql`, {
-    method: "POST",
-    headers,
-    body: JSON.stringify({ query, variables }),
-  });
-  if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`GraphQL error ${res.status}: ${text}`);
-  }
-  const data = await res.json();
-  if (data.errors?.length) {
-    throw new Error(`GraphQL errors: ${JSON.stringify(data.errors)}`);
-  }
-  return data.data;
 }
 
 async function getUserBasics() {
@@ -238,10 +192,10 @@ async function main() {
   // evita forks per stats aggregate
   const owned = repos.filter((r) => !r.fork);
 
-  // somma stars su repo non-fork
+  // stars: somma stargazers_count dei repo non-fork
   const stars = owned.reduce((acc, r) => acc + (r.stargazers_count ?? 0), 0);
 
-  // commits e code frequency ultimi 52 weeks
+  // commits e LOC (ultimi 52 weeks) via endpoints stats
   let commits52w = 0;
   let locAdd52w = 0;
   let locDel52w = 0;
@@ -259,30 +213,79 @@ async function main() {
     locDel52w += del;
   }
 
+  // Valori formattati (ATTENZIONE: questi determinano statsLen!)
+  const repoStr = formatInt(basics.public_repos);
+  const contribStr = formatInt(contributedCount);
+  const commitsStr = formatInt(commits52w);
+
+  const locAddStr = formatInt(locAdd52w);
+  const locDelStr = formatInt(locDel52w);
+  const locTotalStr = formatInt(locAdd52w + locDel52w); // "touched lines" (come prima)
+
+  const starsStr = formatInt(stars);
+  const followersStr = formatInt(basics.followers);
+
   let svg = svgOriginal;
 
-  // aggiorna numeri
-  svg = replaceTspanById(svg, "repo_data", formatInt(basics.public_repos));
-  svg = replaceTspanById(svg, "contrib_data", formatInt(contributedCount));
-  svg = replaceTspanById(svg, "commit_data", formatInt(commits52w));
+  // === 1) aggiorna i numeri negli id ===
+  svg = replaceTspanById(svg, "repo_data", repoStr);
+  svg = replaceTspanById(svg, "contrib_data", contribStr);
+  svg = replaceTspanById(svg, "commit_data", commitsStr);
 
-  // "touched lines" = additions + deletions (puoi cambiarlo se vuoi)
-  svg = replaceTspanById(svg, "loc_data", formatInt(locAdd52w + locDel52w));
-  svg = replaceTspanById(svg, "loc_add", formatInt(locAdd52w));
-  svg = replaceTspanById(svg, "loc_del", formatInt(locDel52w));
+  svg = replaceTspanById(svg, "loc_data", locTotalStr);
+  svg = replaceTspanById(svg, "loc_add", locAddStr);
+  svg = replaceTspanById(svg, "loc_del", locDelStr);
 
-  svg = replaceTspanById(svg, "star_data", formatInt(stars));
-  svg = replaceTspanById(svg, "follower_data", formatInt(basics.followers));
+  svg = replaceTspanById(svg, "star_data", starsStr);
+  svg = replaceTspanById(svg, "follower_data", followersStr);
 
-  // riallinea puntini (INCLUSO contributed)
-  svg = adjustDotsToAlignValues(svg, [
-    { dotsId: "repo_data_dots", valueId: "repo_data" },
-    { dotsId: "contrib_data_dots", valueId: "contrib_data" },
-    { dotsId: "commit_data_dots", valueId: "commit_data" },
-    { dotsId: "loc_data_dots", valueId: "loc_data" },
-    { dotsId: "star_data_dots", valueId: "star_data" },
-    { dotsId: "follower_data_dots", valueId: "follower_data" },
-  ]);
+  // === 2) applica la logica dei 99 caratteri ===
+  // Prefissi: devono rappresentare ESATTAMENTE i caratteri visibili prima dei puntini.
+  // Stats: devono rappresentare ESATTAMENTE i caratteri visibili dopo i puntini.
+  //
+  // NOTA: in about.svg sotto, la parte "prefix" è costruita come:
+  // ". " + LABEL + ":"   (dove lo spazio dopo il punto è presente)
+  //
+  // Repos stats (tutto dopo i puntini):
+  // " " + repo + " {Contributed: " + contrib + "}"
+  //
+  // Commits stats:
+  // " " + commits
+  //
+  // LOC stats:
+  // " " + locTotal + " ( " + locAdd + "++, " + locDel + "-- )"
+  //
+  // Stars / Followers:
+  // " " + value
+  const rules = [
+    {
+      dotsId: "repo_data_dots",
+      prefix: ". Repos:",
+      stats: ` ${repoStr} {Contributed: ${contribStr}}`,
+    },
+    {
+      dotsId: "commit_data_dots",
+      prefix: ". Commits:",
+      stats: ` ${commitsStr}`,
+    },
+    {
+      dotsId: "loc_data_dots",
+      prefix: ". Lines of Code on GitHub:",
+      stats: ` ${locTotalStr} ( ${locAddStr}++, ${locDelStr}-- )`,
+    },
+    {
+      dotsId: "star_data_dots",
+      prefix: ". Stars:",
+      stats: ` ${starsStr}`,
+    },
+    {
+      dotsId: "follower_data_dots",
+      prefix: ". Followers:",
+      stats: ` ${followersStr}`,
+    },
+  ];
+
+  svg = applyDotsRule(svg, rules);
 
   if (svg !== svgOriginal) {
     await fs.writeFile(SVG_PATH, svg, "utf8");
