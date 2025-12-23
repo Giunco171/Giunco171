@@ -42,7 +42,7 @@ async function ghJson(url, opts = {}) {
 }
 
 // Endpoint stats a volte ritorna 202 (calcolo in corso)
-async function ghStatsJson(url, { retries = 8, delayMs = 1500 } = {}) {
+async function ghStatsJson(url, { retries = 10, delayMs = 1500 } = {}) {
   for (let i = 0; i <= retries; i++) {
     const res = await fetch(url, { headers });
     if (res.status === 202) {
@@ -97,6 +97,77 @@ function replaceTspanById(svg, id, newText) {
   return svg.replace(re, `$1${escaped}$3`);
 }
 
+function getTspanInner(svg, id) {
+  const re = new RegExp(`<tspan[^>]*\\bid="${id}"[^>]*>([\\s\\S]*?)</tspan>`, "m");
+  const m = svg.match(re);
+  return m ? m[1] : null;
+}
+
+function setTspanInner(svg, id, inner) {
+  const re = new RegExp(`(<tspan[^>]*\\bid="${id}"[^>]*>)([\\s\\S]*?)(</tspan>)`, "m");
+  if (!re.test(svg)) return svg;
+  return svg.replace(re, `$1${inner}$3`);
+}
+
+// Trasforma un pezzo di SVG in testo "visibile" (euristica sufficiente qui)
+function stripTagsToText(s) {
+  return s
+    .replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+}
+
+/**
+ * Riallinea i puntini per fare in modo che l'inizio dei valori (tspan valueId)
+ * cada sempre nella stessa "colonna" (monospace).
+ *
+ * lines: [{ dotsId, valueId }]
+ */
+function adjustDotsToAlignValues(svg, lines) {
+  const infos = [];
+
+  for (const { dotsId, valueId } of lines) {
+    const dotsInner = getTspanInner(svg, dotsId);
+    const valueInner = getTspanInner(svg, valueId);
+    if (dotsInner == null || valueInner == null) continue;
+
+    // Trova il punto nel documento in cui appare il dots tspan
+    const idxDots = svg.indexOf(`id="${dotsId}"`);
+    if (idxDots === -1) continue;
+
+    // Prendi un contesto prima dei dots (abbastanza grande)
+    const start = Math.max(0, idxDots - 900);
+    const chunk = svg.slice(start, idxDots);
+
+    // Cerca l'ultimo "inizio riga" (il tspan con x=30 y=...)
+    const anchor = chunk.lastIndexOf('<tspan x="30" y="');
+    const prefixChunk = anchor !== -1 ? chunk.slice(anchor) : chunk;
+
+    const prefixText = stripTagsToText(prefixChunk);
+    const currentDotsLen = stripTagsToText(dotsInner).length;
+
+    infos.push({
+      dotsId,
+      prefixLen: prefixText.length,
+      currentDotsLen,
+    });
+  }
+
+  if (infos.length === 0) return svg;
+
+  // Colonna target: la più a destra tra tutte le righe (stato attuale)
+  const targetCol = Math.max(...infos.map((i) => i.prefixLen + i.currentDotsLen));
+
+  // Riscrivi puntini per far combaciare la colonna target
+  for (const i of infos) {
+    const needed = Math.max(0, targetCol - i.prefixLen);
+    svg = setTspanInner(svg, i.dotsId, ".".repeat(needed));
+  }
+
+  return svg;
+}
+
 async function graphql(query, variables = {}) {
   const res = await fetch(`${API}/graphql`, {
     method: "POST",
@@ -143,7 +214,9 @@ async function listAllRepos() {
   const per = 100;
   const repos = [];
   for (;;) {
-    const batch = await ghJson(`${API}/users/${USERNAME}/repos?per_page=${per}&page=${page}&sort=updated`);
+    const batch = await ghJson(
+      `${API}/users/${USERNAME}/repos?per_page=${per}&page=${page}&sort=updated`
+    );
     if (!Array.isArray(batch) || batch.length === 0) break;
     repos.push(...batch);
     if (batch.length < per) break;
@@ -162,10 +235,13 @@ async function main() {
   const contributedCount = await getContributedRepoCount();
   const repos = await listAllRepos();
 
+  // evita forks per stats aggregate
   const owned = repos.filter((r) => !r.fork);
 
+  // somma stars su repo non-fork
   const stars = owned.reduce((acc, r) => acc + (r.stargazers_count ?? 0), 0);
 
+  // commits e code frequency ultimi 52 weeks
   let commits52w = 0;
   let locAdd52w = 0;
   let locDel52w = 0;
@@ -184,27 +260,6 @@ async function main() {
   }
 
   let svg = svgOriginal;
-  svg = replaceTspanById(svg, "repo_data", formatInt(basics.public_repos));
-  svg = replaceTspanById(svg, "contrib_data", formatInt(contributedCount));
-  svg = replaceTspanById(svg, "commit_data", formatInt(commits52w));
 
-  // "touched lines" = additions + deletions (puoi cambiarlo se vuoi)
-  svg = replaceTspanById(svg, "loc_data", formatInt(locAdd52w + locDel52w));
-  svg = replaceTspanById(svg, "loc_add", formatInt(locAdd52w));
-  svg = replaceTspanById(svg, "loc_del", formatInt(locDel52w));
-
-  svg = replaceTspanById(svg, "star_data", formatInt(stars));
-  svg = replaceTspanById(svg, "follower_data", formatInt(basics.followers));
-
-  if (svg !== svgOriginal) {
-    await fs.writeFile(SVG_PATH, svg, "utf8");
-    console.log("SVG updated.");
-  } else {
-    console.log("No changes detected.");
-  }
-}
-
-main().catch((e) => {
-  console.error(e?.stack || e);
-  process.exit(1);
-});
+  // aggiorna numeri
+  svg = replaceTspanById(svg, "repo_data", formatInt(ba_
