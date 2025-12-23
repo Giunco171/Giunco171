@@ -1,0 +1,47 @@
+name: Update GitHub stats in SVG
+
+on:
+  schedule:
+    - cron: "15 2 * * *" # ogni giorno 02:15 UTC (sfalsato rispetto all'altro)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-github-stats-svg
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Update stats in SVG
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Se vuoi forzare lo username (opzionale):
+          # USERNAME: GiovanniPascuzzi
+          SVG_PATH: assets/name.svg
+        run: node scripts/update_github_stats_svg.js
+
+      - name: Commit changes (if any)
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/name.svg
+          git commit -m "chore: refresh GitHub stats ($(date -u +'%Y-%m-%d'))"
+          git push
