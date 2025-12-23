@@ -31,7 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Se vuoi forzare lo username (opzionale):
           # USERNAME: GiovanniPascuzzi
-          SVG_PATH: assets/name.svg
+          SVG_PATH: assets/about.svg
         run: node scripts/update_github_stats_svg.js
 
       - name: Commit changes (if any)
