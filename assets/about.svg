@@ -23,7 +23,7 @@ text, tspan {white-space: pre;}
 <text x="30" y="30" fill="#c9d1d9">
   <!-- ========== INFO ========== -->
   <tspan x="30" y="30">- Info</tspan> -————————————————————————————————————————————————————————————————————————————————————————-—-
-  <tspan x="30" y="50" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc"> ............................................................. </tspan><tspan class="value" id="age_data">24 years, 1 months, 12 days</tspan>
+  <tspan x="30" y="50" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc"> ............................................................. </tspan><tspan class="value"> </tspan><tspan class="value" id="age_data">24 years, 1 months, 12 days</tspan>
   <tspan x="30" y="70" class="cc">. </tspan><tspan class="key">Nationality</tspan>:<tspan class="cc"> ............................................................................ </tspan><tspan class="value">Italian</tspan>
   <tspan x="30" y="90" class="cc">. </tspan><tspan class="key">Spoken</tspan>.<tspan class="key">Languages</tspan>:<tspan class="cc"> .............................................................. </tspan><tspan class="value">Italian, English</tspan>
   <tspan x="30" y="110" class="cc">. </tspan>
