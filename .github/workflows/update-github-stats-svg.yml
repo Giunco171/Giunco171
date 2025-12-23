@@ -34,6 +34,13 @@ jobs:
           SVG_PATH: assets/about.svg
         run: node scripts/update_github_stats_svg.js
 
+      - name: Update uptime in SVG
+        env:
+          SVG_PATH: assets/about.svg
+          # data di nascita (YYYY-MM-DD)
+          UPTIME_ORIGIN: "2001-08-06"
+        run: node scripts/update_uptime_svg.js
+
       - name: Commit changes (if any)
         run: |
           if git diff --quiet; then
