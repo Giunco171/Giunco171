@@ -54,16 +54,28 @@ async function ghStatsJson(url, { retries = 10, delayMs = 1500 } = {}) {
       continue;
     }
 
-    if (res.status === 204) return null;
-    if (!res.ok) return null;
+    if (res.status === 204) {
+      console.warn(`No content from ${url}`);
+      return null;
+    }
 
-    const text = await res.text();
-    if (!text.trim()) return null;
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      console.warn(`Stats request failed ${res.status} for ${url}: ${text}`);
+      return null;
+    }
+
+    const text = await res.text().catch(() => "");
+
+    if (!text.trim()) {
+      console.warn(`Empty response from ${url}`);
+      return null;
+    }
 
     try {
       return JSON.parse(text);
-    } catch {
-      console.warn(`Warning: invalid JSON from ${url}: ${text.slice(0, 200)}`);
+    } catch (e) {
+      console.warn(`Invalid JSON from ${url}: ${text.slice(0, 300)}`);
       return null;
     }
   }
