@@ -47,14 +47,27 @@ async function ghJson(url, opts = {}) {
 async function ghStatsJson(url, { retries = 10, delayMs = 1500 } = {}) {
   for (let i = 0; i <= retries; i++) {
     const res = await fetch(url, { headers });
+
     if (res.status === 202) {
       if (i === retries) return null;
       await sleep(delayMs);
       continue;
     }
+
+    if (res.status === 204) return null;
     if (!res.ok) return null;
-    return res.json();
+
+    const text = await res.text();
+    if (!text.trim()) return null;
+
+    try {
+      return JSON.parse(text);
+    } catch {
+      console.warn(`Warning: invalid JSON from ${url}: ${text.slice(0, 200)}`);
+      return null;
+    }
   }
+
   return null;
 }
 
