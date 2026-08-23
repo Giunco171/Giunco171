@@ -77,7 +77,7 @@ async function main() {
   // Applica regola 99 caratteri:
   // riga visibile = prefix + dots + " " + uptimeStr
   // prefix visibile deve essere ESATTAMENTE ". Uptime:" (include spazio dopo punto)
-  const prefix = ". Uptime: ";
+  const prefix = ". Uptime:\u0020";
 
   // lo spazio tra dots e stats è reale nell'SVG => conta 1
   const dots = LINE_WIDTH - prefix.length - 1 - uptimeStr.length;
