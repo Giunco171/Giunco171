@@ -27,7 +27,7 @@ text, tspan {white-space: pre;}
   <tspan x="30" y="70" class="cc">. </tspan><tspan class="key">Nationality</tspan>:<tspan class="cc"> ............................................................................ </tspan><tspan class="value">Italian</tspan>
   <tspan x="30" y="90" class="cc">. </tspan><tspan class="key">Spoken</tspan>.<tspan class="key">Languages</tspan>:<tspan class="cc"> .............................................................. </tspan><tspan class="value">Italian, English</tspan>
   <tspan x="30" y="110" class="cc">. </tspan>
-  <tspan x="30" y="130" class="cc">. </tspan><tspan class="key">Occupation</tspan>:<tspan class="cc"> ............................................................................. </tspan><tspan class="value">Student</tspan>
+  <tspan x="30" y="130" class="cc">. </tspan><tspan class="key">Occupation</tspan>:<tspan class="cc"> ......................................................................... </tspan><tspan class="value">PhD Student</tspan>
   <tspan x="30" y="150" class="cc">. </tspan>
   <tspan x="30" y="170" class="cc">. </tspan><tspan class="key">Bachelor</tspan>:<tspan class="cc"> ............................................................. </tspan><tspan class="value">Università della Calabria</tspan>
   <tspan x="30" y="190" class="cc">. </tspan><tspan class="key">Master</tspan>:<tspan class="cc"> ............................................................... </tspan><tspan class="value">Università della Calabria</tspan>
