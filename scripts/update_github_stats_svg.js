@@ -142,8 +142,8 @@ function replaceTspanById(svg, id, newText) {
 }
 
 function setDots(svg, dotsId, dotsCount) {
-  const n = Math.max(0, Math.trunc(dotsCount));
-  return replaceTspanById(svg, dotsId, ".".repeat(n));
+  const n = Math.max(0, Math.trunc(dotsCount)) - 1;
+  return replaceTspanById(svg, dotsId, " "+".".repeat(n)); //we want the dots to be preceded by a space. That's why we adjust the count putting -1 on the 145 line
 }
 
 /**
@@ -285,27 +285,27 @@ async function main() {
   const rules = [
     {
       dotsId: "repo_data_dots",
-      prefix: ". Repos: ",
+      prefix: ". Repos:",
       stats: ` ${repoStr} {Contributed: ${contribStr}}`,
     },
     {
       dotsId: "commit_data_dots",
-      prefix: ". Commits: ",
+      prefix: ". Commits:",
       stats: ` ${commitsStr}`,
     },
     {
       dotsId: "loc_data_dots",
-      prefix: ". Lines of Code on GitHub: ",
+      prefix: ". Lines of Code on GitHub:",
       stats: ` ${locTotalStr} ( ${locAddStr}++, ${locDelStr}-- )`,
     },
     {
       dotsId: "star_data_dots",
-      prefix: ". Stars: ",
+      prefix: ". Stars:",
       stats: ` ${starsStr}`,
     },
     {
       dotsId: "follower_data_dots",
-      prefix: ". Followers: ",
+      prefix: ". Followers:",
       stats: ` ${followersStr}`,
     },
   ];
