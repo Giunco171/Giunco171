@@ -25,8 +25,8 @@ function replaceTspanById(svg, id, newText) {
 }
 
 function setDots(svg, dotsId, dotsCount) {
-  const n = Math.max(0, Math.trunc(dotsCount));
-  return replaceTspanById(svg, dotsId, ".".repeat(n));
+  const n = Math.max(0, Math.trunc(dotsCount)) - 1;
+  return replaceTspanById(svg, dotsId, " "+".".repeat(n)); //vogliamo che prima del primo punto ci sia uno spazio. Per questo c'è il -1 alla riga di sopra.
 }
 
 // Calcolo differenza in anni/mesi/giorni "calendario" (non solo giorni totali)
@@ -77,7 +77,7 @@ async function main() {
   // Applica regola 99 caratteri:
   // riga visibile = prefix + dots + " " + uptimeStr
   // prefix visibile deve essere ESATTAMENTE ". Uptime:" (include spazio dopo punto)
-  const prefix = ". Uptime:\u0020";
+  const prefix = ". Uptime:";
 
   // lo spazio tra dots e stats è reale nell'SVG => conta 1
   const dots = LINE_WIDTH - prefix.length - 1 - uptimeStr.length;
