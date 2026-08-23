@@ -285,27 +285,27 @@ async function main() {
   const rules = [
     {
       dotsId: "repo_data_dots",
-      prefix: ". Repos:",
+      prefix: ". Repos: ",
       stats: ` ${repoStr} {Contributed: ${contribStr}}`,
     },
     {
       dotsId: "commit_data_dots",
-      prefix: ". Commits:",
+      prefix: ". Commits: ",
       stats: ` ${commitsStr}`,
     },
     {
       dotsId: "loc_data_dots",
-      prefix: ". Lines of Code on GitHub:",
+      prefix: ". Lines of Code on GitHub: ",
       stats: ` ${locTotalStr} ( ${locAddStr}++, ${locDelStr}-- )`,
     },
     {
       dotsId: "star_data_dots",
-      prefix: ". Stars:",
+      prefix: ". Stars: ",
       stats: ` ${starsStr}`,
     },
     {
       dotsId: "follower_data_dots",
-      prefix: ". Followers:",
+      prefix: ". Followers: ",
       stats: ` ${followersStr}`,
     },
   ];
